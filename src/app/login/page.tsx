@@ -35,30 +35,44 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-        <h1 className="text-xl font-bold text-gray-900">Idea Board</h1>
-        <p className="text-sm text-gray-500">Enter the team password to continue.</p>
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <div className="w-full max-w-sm">
+        {/* Brand */}
+        <div className="mb-8 text-center">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-muted)]">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 12 18.469c-.94 0-1.823-.369-2.488-1.023z"/>
+            </svg>
+          </div>
+          <h1 className="text-xl font-bold tracking-tight text-[var(--text-primary)]">The Lab</h1>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">Quiet Quitting idea pipeline</p>
+        </div>
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          autoFocus
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-        />
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-6">
+          <label className="mb-2 block text-[12px] font-medium text-[var(--text-tertiary)]">Team Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            autoFocus
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-[var(--border-focus)] focus:outline-none"
+          />
 
-        {error && <p className="text-sm text-red-500">{error}</p>}
+          {error && (
+            <p className="mt-2 text-sm text-[var(--verdict-pass)]">{error}</p>
+          )}
 
-        <button
-          type="submit"
-          disabled={loading || !password}
-          className="w-full rounded-md bg-blue-600 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
-        >
-          {loading ? "Checking..." : "Enter"}
-        </button>
-      </form>
+          <button
+            type="submit"
+            disabled={loading || !password}
+            className="mt-4 w-full rounded-lg bg-[var(--accent)] py-2.5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-40"
+          >
+            {loading ? "Checking..." : "Enter"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { TEAM_MEMBERS } from "@/lib/constants";
 
+const inputClass = "w-full rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-[var(--border-focus)] focus:outline-none";
+
 export default function SubmitForm() {
   const [name, setName] = useState("");
   const [oneLiner, setOneLiner] = useState("");
@@ -47,46 +49,46 @@ export default function SubmitForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="mb-1 block text-sm font-medium text-gray-700">Idea Name</label>
+        <label className="mb-1.5 block text-[12px] font-medium text-[var(--text-tertiary)]">Idea Name</label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. BoatStash"
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+          className={inputClass}
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-gray-700">One-liner</label>
+        <label className="mb-1.5 block text-[12px] font-medium text-[var(--text-tertiary)]">One-liner</label>
         <input
           type="text"
           value={oneLiner}
           onChange={(e) => setOneLiner(e.target.value)}
           placeholder="e.g. Photo-based parts inventory for cruisers"
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+          className={inputClass}
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-gray-700">Description (optional)</label>
+        <label className="mb-1.5 block text-[12px] font-medium text-[var(--text-tertiary)]">Description (optional)</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Tell us more about the idea, the problem it solves, who it's for..."
-          rows={5}
-          className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+          placeholder="What problem does it solve? Who is it for?"
+          rows={4}
+          className={`${inputClass} resize-none`}
         />
       </div>
 
       <div>
-        <label className="mb-1 block text-sm font-medium text-gray-700">Your Name</label>
+        <label className="mb-1.5 block text-[12px] font-medium text-[var(--text-tertiary)]">Your Name</label>
         <select
           value={submitter}
           onChange={(e) => setSubmitter(e.target.value)}
-          className="rounded-md border border-gray-300 px-3 py-2 text-sm"
+          className="cursor-pointer appearance-none rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-2.5 text-sm font-medium text-[var(--text-secondary)] focus:border-[var(--border-focus)] focus:outline-none"
         >
           {TEAM_MEMBERS.map((m) => (
             <option key={m} value={m} className="capitalize">{m}</option>
@@ -94,12 +96,12 @@ export default function SubmitForm() {
         </select>
       </div>
 
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {error && <p className="text-sm text-[var(--verdict-pass)]">{error}</p>}
 
       <button
         type="submit"
         disabled={submitting || !name.trim() || !oneLiner.trim()}
-        className="rounded-md bg-blue-600 px-6 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+        className="rounded-lg bg-[var(--accent)] px-6 py-2.5 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-40"
       >
         {submitting ? "Saving..." : "Save as Draft"}
       </button>

@@ -19,6 +19,25 @@ const STATUS_ORDER: Record<string, number> = {
   archived: 4,
 };
 
+function SkeletonCard({ index }: { index: number }) {
+  return (
+    <div className={`animate-card-in stagger-${index + 1} rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5`}>
+      <div className="flex items-center gap-3">
+        <div className="skeleton h-11 w-11 rounded-full" />
+        <div className="flex-1 space-y-2">
+          <div className="skeleton h-4 w-36" />
+          <div className="skeleton h-3 w-64" />
+        </div>
+        <div className="skeleton h-5 w-20 rounded-full" />
+      </div>
+      <div className="mt-4 flex gap-2">
+        <div className="skeleton h-4 w-20 rounded-md" />
+        <div className="skeleton h-4 w-20 rounded-md" />
+      </div>
+    </div>
+  );
+}
+
 export default function BoardPage() {
   const { data: ideas, error, isLoading } = useSWR<IdeaWithNotes[]>("/api/ideas", fetcher, {
     refreshInterval: 60000,
@@ -58,17 +77,24 @@ export default function BoardPage() {
   }, [ideas, type, effort, status, verdict, sort]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Idea Board</h1>
+    <div className="mx-auto max-w-3xl px-4 py-10">
+      {/* Header */}
+      <div className="mb-8 flex items-end justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
+            The Lab
+          </h1>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">Quiet Quitting idea pipeline</p>
+        </div>
         <Link
           href="/submit"
-          className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)]"
         >
-          + Submit Idea
+          + New Idea
         </Link>
       </div>
 
+      {/* Filters */}
       <div className="mb-6">
         <FilterBar
           type={type}
@@ -81,24 +107,38 @@ export default function BoardPage() {
           onStatusChange={setStatus}
           onVerdictChange={setVerdict}
           onSortChange={setSort}
+          totalCount={ideas?.length ?? 0}
+          filteredCount={filtered.length}
         />
       </div>
 
+      {/* Loading skeletons */}
       {isLoading && (
-        <div className="py-12 text-center text-gray-500">Loading ideas...</div>
+        <div className="space-y-3">
+          {[0, 1, 2].map((i) => <SkeletonCard key={i} index={i} />)}
+        </div>
       )}
 
+      {/* Error */}
       {error && (
-        <div className="py-12 text-center text-red-500">Failed to load ideas. Try refreshing.</div>
+        <div className="rounded-xl border border-[var(--verdict-pass)] bg-[var(--verdict-pass-bg)] p-6 text-center text-sm text-[var(--verdict-pass)]">
+          Failed to load ideas. Try refreshing.
+        </div>
       )}
 
+      {/* Empty state */}
       {filtered.length === 0 && !isLoading && !error && (
-        <div className="py-12 text-center text-gray-500">No ideas match your filters.</div>
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-12 text-center">
+          <p className="text-sm text-[var(--text-tertiary)]">
+            {ideas?.length ? "No ideas match your filters." : "No ideas yet. Submit the first one."}
+          </p>
+        </div>
       )}
 
-      <div className="space-y-4">
-        {filtered.map((idea) => (
-          <IdeaCard key={idea.id} idea={idea} />
+      {/* Idea cards */}
+      <div className="space-y-3">
+        {filtered.map((idea, i) => (
+          <IdeaCard key={idea.id} idea={idea} index={i} />
         ))}
       </div>
     </div>

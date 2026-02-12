@@ -1,7 +1,7 @@
 "use client";
 
 import { TYPE_LABELS, EFFORT_LABELS, STATUS_LABELS, VERDICT_CONFIG } from "@/lib/constants";
-import type { IdeaType, EffortLevel, IdeaStatus, Verdict, SortOption } from "@/lib/types";
+import type { Verdict, SortOption } from "@/lib/types";
 
 interface FilterBarProps {
   type: string;
@@ -14,6 +14,8 @@ interface FilterBarProps {
   onStatusChange: (v: string) => void;
   onVerdictChange: (v: string) => void;
   onSortChange: (v: SortOption) => void;
+  totalCount: number;
+  filteredCount: number;
 }
 
 function Select({ label, value, onChange, options }: {
@@ -27,7 +29,14 @@ function Select({ label, value, onChange, options }: {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       aria-label={label}
-      className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+      className={`cursor-pointer appearance-none rounded-lg border bg-[var(--bg-input)] px-3 py-1.5 pr-7 text-xs font-medium transition-colors focus:border-[var(--border-focus)] focus:outline-none ${
+        value ? "border-[var(--accent)] text-[var(--accent)]" : "border-[var(--border)] text-[var(--text-secondary)]"
+      }`}
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5f73' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right 8px center",
+      }}
     >
       <option value="">{label}</option>
       {options.map((o) => (
@@ -46,24 +55,52 @@ export default function FilterBar(props: FilterBarProps) {
     label: `${VERDICT_CONFIG[v].emoji} ${v}`,
   }));
 
-  return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Select label="All Types" value={props.type} onChange={props.onTypeChange} options={typeOptions} />
-      <Select label="All Effort" value={props.effort} onChange={props.onEffortChange} options={effortOptions} />
-      <Select label="All Status" value={props.status} onChange={props.onStatusChange} options={statusOptions} />
-      <Select label="All Verdicts" value={props.verdict} onChange={props.onVerdictChange} options={verdictOptions} />
+  const hasFilters = props.type || props.effort || props.status || props.verdict;
 
-      <div className="ml-auto">
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Select label="Type" value={props.type} onChange={props.onTypeChange} options={typeOptions} />
+      <Select label="Effort" value={props.effort} onChange={props.onEffortChange} options={effortOptions} />
+      <Select label="Status" value={props.status} onChange={props.onStatusChange} options={statusOptions} />
+      <Select label="Verdict" value={props.verdict} onChange={props.onVerdictChange} options={verdictOptions} />
+
+      {hasFilters && (
+        <button
+          onClick={() => {
+            props.onTypeChange("");
+            props.onEffortChange("");
+            props.onStatusChange("");
+            props.onVerdictChange("");
+          }}
+          className="rounded-lg px-2 py-1.5 text-xs font-medium text-[var(--text-tertiary)] transition-colors hover:text-[var(--text-secondary)]"
+        >
+          Clear
+        </button>
+      )}
+
+      <div className="ml-auto flex items-center gap-3">
+        {props.totalCount > 0 && (
+          <span className="text-[11px] text-[var(--text-tertiary)]">
+            {props.filteredCount === props.totalCount
+              ? `${props.totalCount} ideas`
+              : `${props.filteredCount} of ${props.totalCount}`}
+          </span>
+        )}
         <select
           value={props.sort}
           onChange={(e) => props.onSortChange(e.target.value as SortOption)}
           aria-label="Sort by"
-          className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+          className="cursor-pointer appearance-none rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-1.5 pr-7 text-xs font-medium text-[var(--text-secondary)] transition-colors focus:border-[var(--border-focus)] focus:outline-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235c5f73' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 8px center",
+          }}
         >
-          <option value="score">Sort: Score</option>
-          <option value="newest">Sort: Newest</option>
-          <option value="most_notes">Sort: Most Notes</option>
-          <option value="status">Sort: Status</option>
+          <option value="score">Score</option>
+          <option value="newest">Newest</option>
+          <option value="most_notes">Most Notes</option>
+          <option value="status">Status</option>
         </select>
       </div>
     </div>

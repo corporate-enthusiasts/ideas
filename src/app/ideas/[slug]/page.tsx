@@ -9,7 +9,7 @@ import NotesList from "@/components/NotesList";
 import EvalHistory from "@/components/EvalHistory";
 import AddNoteForm from "@/components/AddNoteForm";
 import TagEditor from "@/components/TagEditor";
-import { SCORE_LABELS, TYPE_LABELS, EFFORT_LABELS, STATUS_LABELS, VERDICT_CONFIG } from "@/lib/constants";
+import { SCORE_LABELS, VERDICT_CONFIG } from "@/lib/constants";
 import type { Idea, Note } from "@/lib/types";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
@@ -21,105 +21,159 @@ interface DetailData {
   _notesSha: string | null;
 }
 
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+      <h2 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">{title}</h2>
+      {children}
+    </section>
+  );
+}
+
 export default function IdeaDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const { data, error, isLoading, mutate } = useSWR<DetailData>(`/api/ideas/${slug}`, fetcher);
   const [summaryOpen, setSummaryOpen] = useState(false);
 
-  if (isLoading) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-gray-500">Loading...</div>;
-  if (error || !data?.idea) return <div className="mx-auto max-w-3xl px-4 py-12 text-center text-red-500">Idea not found.</div>;
+  if (isLoading) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-12">
+        <div className="space-y-4">
+          <div className="skeleton h-8 w-48" />
+          <div className="skeleton h-4 w-80" />
+          <div className="skeleton mt-6 h-40 w-full rounded-xl" />
+          <div className="skeleton h-40 w-full rounded-xl" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !data?.idea) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-12 text-center">
+        <p className="text-[var(--text-tertiary)]">Idea not found.</p>
+        <Link href="/" className="mt-2 inline-block text-sm text-[var(--accent)] hover:underline">Back to board</Link>
+      </div>
+    );
+  }
 
   const { idea, notes } = data;
-  const verdictEmoji = VERDICT_CONFIG[idea.verdict]?.emoji ?? "";
+  const config = VERDICT_CONFIG[idea.verdict];
+  const isDraft = idea.status === "draft";
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-8">
-      <Link href="/" className="mb-6 inline-block text-sm text-blue-600 hover:underline">&larr; Back</Link>
+    <div className="mx-auto max-w-3xl px-4 py-10">
+      <Link href="/" className="mb-8 inline-flex items-center gap-1.5 text-sm text-[var(--text-tertiary)] transition-colors hover:text-[var(--accent)]">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m15 18-6-6 6-6"/></svg>
+        Back
+      </Link>
 
-      {/* Header */}
-      <div className="mb-6">
-        <div className="flex items-center gap-3">
-          <span className="text-3xl">{verdictEmoji}</span>
-          <h1 className="text-2xl font-bold text-gray-900">{idea.name}</h1>
-          <span className="text-xl font-semibold text-gray-500">{idea.composite_score}</span>
-          <VerdictBadge verdict={idea.verdict} />
+      {/* Hero header */}
+      <div className="mb-8 animate-card-in">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">{idea.name}</h1>
+            <p className="mt-1.5 text-[15px] text-[var(--text-secondary)]">{idea.one_liner}</p>
+          </div>
+          <div className="flex shrink-0 flex-col items-end gap-2">
+            {isDraft ? (
+              <span className="rounded-full bg-[var(--bg-surface-raised)] px-3 py-1.5 text-xs font-semibold text-[var(--text-tertiary)]">
+                Unscored
+              </span>
+            ) : (
+              <>
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl text-xl font-bold"
+                  style={{ backgroundColor: `color-mix(in srgb, ${config.cssColor} 12%, transparent)`, color: config.cssColor }}
+                >
+                  {idea.composite_score}
+                </div>
+                <VerdictBadge verdict={idea.verdict} size="lg" />
+              </>
+            )}
+          </div>
         </div>
-        <p className="mt-1 text-gray-600">{idea.one_liner}</p>
       </div>
 
-      {/* Tags */}
-      <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-        <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase">Tags</h2>
-        <TagEditor idea={idea} onUpdated={mutate} />
-        <div className="mt-2 flex flex-wrap gap-2 text-xs text-gray-500">
-          <span>Submitter: {idea.submitter}</span>
-          <span>Created: {idea.created}</span>
-          {idea.updated !== idea.created && <span>Updated: {idea.updated}</span>}
-        </div>
-      </section>
+      <div className="space-y-5">
+        {/* Tags */}
+        <Section title="Details">
+          <TagEditor idea={idea} onUpdated={mutate} />
+          <div className="mt-3 flex flex-wrap gap-4 text-[12px] text-[var(--text-tertiary)]">
+            <span>Submitter: <span className="text-[var(--text-secondary)]">{idea.submitter}</span></span>
+            <span>Created: <span className="text-[var(--text-secondary)]">{idea.created}</span></span>
+            {idea.updated !== idea.created && (
+              <span>Updated: <span className="text-[var(--text-secondary)]">{idea.updated}</span></span>
+            )}
+          </div>
+        </Section>
 
-      {/* Scores */}
-      <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-        <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase">Scores</h2>
-        <div className="space-y-3">
-          {Object.entries(idea.scores).map(([key, val]) => (
-            <ScoreBar
-              key={key}
-              label={SCORE_LABELS[key] ?? key}
-              score={val.score}
-              reasoning={val.reasoning}
-            />
-          ))}
-        </div>
-      </section>
+        {/* Scores */}
+        {!isDraft && (
+          <Section title="Scores">
+            <div className="space-y-3.5">
+              {Object.entries(idea.scores).map(([key, val]) => (
+                <ScoreBar
+                  key={key}
+                  scoreKey={key}
+                  label={SCORE_LABELS[key] ?? key}
+                  score={val.score}
+                  reasoning={val.reasoning}
+                />
+              ))}
+            </div>
+            <p className="mt-3 text-[11px] text-[var(--text-tertiary)]">Hover any score to see reasoning</p>
+          </Section>
+        )}
 
-      {/* Summary */}
-      {idea.summary && (
-        <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-          <h2 className="mb-2 text-sm font-semibold text-gray-500 uppercase">Summary</h2>
-          <p className={`text-sm text-gray-700 ${!summaryOpen ? "line-clamp-3" : ""}`}>
-            {idea.summary}
-          </p>
-          <button
-            onClick={() => setSummaryOpen(!summaryOpen)}
-            className="mt-1 text-xs text-blue-600 hover:underline"
-          >
-            {summaryOpen ? "Collapse" : "Expand Full Report"}
-          </button>
-        </section>
-      )}
+        {/* Summary */}
+        {idea.summary && (
+          <Section title="Summary">
+            <p className={`text-[13px] leading-relaxed text-[var(--text-secondary)] ${!summaryOpen ? "line-clamp-3" : ""}`}>
+              {idea.summary}
+            </p>
+            <button
+              onClick={() => setSummaryOpen(!summaryOpen)}
+              className="mt-2 text-[12px] font-medium text-[var(--accent)] hover:underline"
+            >
+              {summaryOpen ? "Collapse" : "Read full report"}
+            </button>
+          </Section>
+        )}
 
-      {/* Brief */}
-      {idea.brief && (
-        <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase">Brief</h2>
-          <dl className="space-y-2 text-sm">
-            {Object.entries(idea.brief).map(([key, val]) => (
-              <div key={key}>
-                <dt className="font-medium text-gray-700 capitalize">{key.replace(/_/g, " ")}</dt>
-                <dd className="text-gray-600">{val}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-      )}
+        {/* Brief */}
+        {idea.brief && idea.brief.problem && (
+          <Section title="Brief">
+            <dl className="space-y-3">
+              {Object.entries(idea.brief).map(([key, val]) => {
+                if (!val) return null;
+                return (
+                  <div key={key}>
+                    <dt className="text-[11px] font-bold uppercase tracking-wide text-[var(--text-tertiary)]">{key.replace(/_/g, " ")}</dt>
+                    <dd className="mt-0.5 text-[13px] leading-relaxed text-[var(--text-secondary)]">{val}</dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </Section>
+        )}
 
-      {/* Notes */}
-      <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-        <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase">Team Notes</h2>
-        <NotesList notes={notes} />
-        <div className="mt-4 border-t border-gray-100 pt-4">
-          <AddNoteForm slug={slug} onNoteAdded={mutate} />
-        </div>
-      </section>
+        {/* Notes */}
+        <Section title={`Notes (${notes.length})`}>
+          <NotesList notes={notes} />
+          <div className="mt-4 border-t border-[var(--border-subtle)] pt-4">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Add Note</p>
+            <AddNoteForm slug={slug} onNoteAdded={mutate} />
+          </div>
+        </Section>
 
-      {/* Eval History */}
-      {idea.evaluation_history && idea.evaluation_history.length > 0 && (
-        <section className="mb-6 rounded-lg border border-gray-200 bg-white p-4">
-          <h2 className="mb-3 text-sm font-semibold text-gray-500 uppercase">Evaluation History</h2>
-          <EvalHistory entries={idea.evaluation_history} />
-        </section>
-      )}
+        {/* Eval History */}
+        {idea.evaluation_history && idea.evaluation_history.length > 0 && (
+          <Section title="Evaluation History">
+            <EvalHistory entries={idea.evaluation_history} />
+          </Section>
+        )}
+      </div>
     </div>
   );
 }
