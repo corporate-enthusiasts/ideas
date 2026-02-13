@@ -130,7 +130,9 @@ async function callAnthropic(prompt: string) {
   }
 
   const data = await res.json();
-  const text = data.content[0].text;
+  let text: string = data.content[0].text;
+  // Strip markdown fences if the model wraps JSON in ```json ... ```
+  text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "");
   return JSON.parse(text);
 }
 
