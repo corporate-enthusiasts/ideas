@@ -1,0 +1,32 @@
+name: Evaluate Idea
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Idea slug to evaluate"
+        required: true
+        type: string
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Evaluate
+        run: npx tsx scripts/evaluate.ts "${{ github.event.inputs.slug }}"
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add database/
+          git diff --staged --quiet || git commit -m "Evaluate ${{ github.event.inputs.slug }} via web"
+          git push

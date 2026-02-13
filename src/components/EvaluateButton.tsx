@@ -11,9 +11,8 @@ interface EvaluateButtonProps {
   autoEvaluate?: boolean;
 }
 
-export default function EvaluateButton({ slug, status, currentScore, onEvaluated, autoEvaluate }: EvaluateButtonProps) {
+export default function EvaluateButton({ slug, status, onEvaluated, autoEvaluate }: EvaluateButtonProps) {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [delta, setDelta] = useState<number | null>(null);
   const [errorMsg, setErrorMsg] = useState("");
   const autoFiredRef = useRef(false);
 
@@ -29,7 +28,6 @@ export default function EvaluateButton({ slug, status, currentScore, onEvaluated
 
   async function handleClick() {
     setState("loading");
-    setDelta(null);
     setErrorMsg("");
 
     try {
@@ -40,20 +38,10 @@ export default function EvaluateButton({ slug, status, currentScore, onEvaluated
         throw new Error(body.error || "Evaluation failed");
       }
 
-      const data = await res.json();
-
-      if (!isDraft && currentScore > 0) {
-        setDelta(data.composite_score - currentScore);
-      }
-
       setState("success");
       onEvaluated();
 
-      // Reset to idle after showing result
-      setTimeout(() => {
-        setState("idle");
-        setDelta(null);
-      }, 4000);
+      setTimeout(() => setState("idle"), 4000);
     } catch (err) {
       setState("error");
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
@@ -79,17 +67,11 @@ export default function EvaluateButton({ slug, status, currentScore, onEvaluated
           disabled:opacity-60
         `}
       >
-        {state === "loading" && "Evaluating..."}
+        {state === "loading" && "Starting..."}
         {state === "idle" && label}
-        {state === "success" && "Done!"}
+        {state === "success" && "Queued!"}
         {state === "error" && "Failed"}
       </button>
-
-      {state === "success" && delta !== null && (
-        <span className={`text-sm font-semibold ${delta >= 0 ? "text-[var(--verdict-promising)]" : "text-[var(--verdict-pass)]"}`}>
-          {delta >= 0 ? "+" : ""}{delta} points
-        </span>
-      )}
 
       {state === "error" && errorMsg && (
         <span className="text-xs text-[var(--verdict-pass)]">{errorMsg}</span>

@@ -102,10 +102,12 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
               currentScore={idea.composite_score}
               autoEvaluate={autoEvaluate}
               onEvaluated={() => {
-                mutate();
                 if (autoEvaluate) {
                   router.replace(`/ideas/${slug}`, { scroll: false });
                 }
+                // Poll every 5s for results until scores arrive (max 60s)
+                const interval = setInterval(() => mutate(), 5000);
+                setTimeout(() => clearInterval(interval), 60000);
               }}
             />
           </div>
