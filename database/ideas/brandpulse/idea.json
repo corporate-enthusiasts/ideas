@@ -5,7 +5,7 @@
   "submitter": "ben",
   "created": "2026-02-13",
   "updated": "2026-02-13",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Crowded reputation management space (Birdeye, Podium, ReviewTrackers) but most are review-focused, not full brand monitoring. Enterprise tools like Brandwatch are expensive, leaving a gap for AI-powered SMB solution."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 5,
+      "reasoning": "Perfect fit: Andrew already has a paying SaaS doing exactly this with 40+ potential launch customers from his agency portfolio. Ben can build the AI automation pipeline, Nick handles GTM against enterprise competitors."
+    },
+    "bootstrappability": {
+      "score": 4,
+      "reasoning": "Andrew already has working prototype with paying customer, proving concept can launch cheaply. Main costs are API fees for LLM processing and scraping infrastructure, likely under $500 to productize MVP."
+    },
+    "passive_potential": {
+      "score": 4,
+      "reasoning": "Automated monitoring and AI classification runs on its own once configured. Main ongoing work is customer support and occasional pipeline maintenance, but core product runs hands-off."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Andrew already built and maintains similar tool at side-project pace with paying customer. Automation-first architecture means maintenance should stay light once initial product is stable."
+    },
+    "ai_leverage": {
+      "score": 4,
+      "reasoning": "AI provides 10x improvement over manual monitoring—LLMs enable sentiment classification and issue flagging at scale that would be impossible manually. Not AI-native in the sense that monitoring existed before, but AI makes it accessible to SMBs."
+    },
+    "revenue_clarity": {
+      "score": 5,
+      "reasoning": "Andrew already has paying MRR customer proving willingness to pay. SMBs already spend $50-200/mo on reputation tools, and 40+ warm leads from his agency portfolio provide immediate validation path."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Strong timing: LLMs just made sophisticated sentiment analysis affordable for SMBs, and post-COVID digital reputation is critical. Growing concern about social media/Reddit mentions beyond traditional review sites."
     }
   },
-  "composite_score": 0,
-  "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "composite_score": 87,
+  "verdict": "STRONG",
+  "summary": "BrandPulse is a STRONG build opportunity with exceptional product-market fit indicators. Andrew already has a paying customer and 40+ warm SMB leads from his agency portfolio, dramatically de-risking the launch. The team fit is perfect: Andrew understands SMB pain points deeply and has proven he can build and sell this product, Ben can scale the AI automation infrastructure, and Nick can position against overpriced enterprise tools. The $49-99/mo price point sits in a sweet spot where SMBs already pay for inferior tools.\n\nKey strengths include proof of concept with revenue, immediate distribution through Andrew's client base, strong AI differentiation over legacy reputation tools, and automation-friendly architecture for side-project maintenance. The market is growing as businesses increasingly care about social media and forum mentions beyond Google reviews. Potential moats include data accumulation (historical brand sentiment), switching costs once integrated into workflows, and AI model improvements from usage patterns.\n\nMain concern is competition from established reputation management players who could add similar AI features, though their enterprise focus and pricing may leave the SMB segment open. Recommended next steps: (1) Interview Andrew's existing customer and 5-10 agency clients to validate feature priorities and pricing, (2) Build productized MVP with Ben focusing on scalable scraping/LLM pipeline, (3) Beta launch to 10 agency clients at discounted rate to prove retention and gather testimonials, (4) Evaluate churn and support load after 60 days before broader launch.",
+  "evaluation_history": [
+    {
+      "date": "2026-02-13",
+      "score": 87,
+      "verdict": "STRONG",
+      "trigger": "web-eval"
+    }
+  ]
 }
