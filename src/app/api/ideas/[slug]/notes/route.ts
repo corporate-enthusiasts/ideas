@@ -14,7 +14,7 @@ export async function POST(
     return NextResponse.json({ error: "text and author required" }, { status: 400 });
   }
 
-  const path = `ideas/${slug}/notes.json`;
+  const path = `database/ideas/${slug}/notes.json`;
 
   try {
     const existing = await getFileContent<NotesFile>(path);

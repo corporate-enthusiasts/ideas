@@ -10,10 +10,10 @@ export async function GET() {
 
     const ideas = await Promise.all(
       slugs.map(async (slug) => {
-        const ideaResult = await getFileContent<Idea>(`ideas/${slug}/idea.json`);
+        const ideaResult = await getFileContent<Idea>(`database/ideas/${slug}/idea.json`);
         if (!ideaResult) return null;
 
-        const notesResult = await getFileContent<NotesFile>(`ideas/${slug}/notes.json`);
+        const notesResult = await getFileContent<NotesFile>(`database/ideas/${slug}/notes.json`);
         const noteCount = notesResult?.data?.notes?.length ?? 0;
 
         return { ...ideaResult.data, _noteCount: noteCount };

@@ -1,0 +1,35 @@
+{
+  "id": "voice-reservation-bot",
+  "name": "Voice Reservation Bot",
+  "one_liner": "AI answers phones for small businesses — books appointments and takes reservations",
+  "submitter": "troy",
+  "created": "2026-02-10",
+  "updated": "2026-02-10",
+  "status": "evaluated",
+  "type": "smb_saas",
+  "effort_level": "team",
+  "tags": ["voice-ai", "smb", "saas", "recurring-revenue"],
+  "brief": {
+    "problem": "Small businesses (restaurants, salons, clinics) miss calls and lose customers because they can not afford receptionists.",
+    "target_user": "Restaurants, salons, clinics, and trades that rely on phone bookings",
+    "proposed_solution": "AI voice agent that answers calls, books appointments, takes reservations, and answers FAQs. Integrates with existing calendar/booking systems.",
+    "value_prop": "Never miss a call again — AI receptionist for $50/month instead of $3,000/month for a human",
+    "initial_revenue_model": "Monthly subscription per business ($30-100/mo) + usage-based pricing for high volume"
+  },
+  "scores": {
+    "ai_leverage": { "score": 5, "reasoning": "Voice AI is the entire product. Leverages latest speech-to-text and LLM tech for natural conversations." },
+    "competition": { "score": 2, "reasoning": "Growing space with well-funded competitors. Bland AI, Slang, others raising money. Medium-high competition." },
+    "bootstrappability": { "score": 2, "reasoning": "Requires voice AI infrastructure, telephony integration, calendar APIs. Significant upfront build." },
+    "revenue_clarity": { "score": 5, "reasoning": "Clear SaaS model with strong unit economics. $50-100/mo per business is proven price point in this space." },
+    "passive_potential": { "score": 2, "reasoning": "Requires active sales, onboarding, and support. Not passive at all." },
+    "team_fit": { "score": 3, "reasoning": "Ben has some voice AI consulting experience but team lacks sales/BD muscle needed for SMB." },
+    "side_project_viability": { "score": 2, "reasoning": "Hard to run as a side project — needs dedicated sales and customer support." },
+    "market_timing": { "score": 5, "reasoning": "Voice AI just became good enough. Perfect timing — early enough to build but tech is mature." }
+  },
+  "composite_score": 58,
+  "verdict": "MEH",
+  "summary": "Voice Reservation Bot has strong revenue potential and perfect market timing, but requires significant build effort and active sales that do not fit a side project model. Competition is growing fast with well-funded players. Best suited for a team that can go full-time. Could revisit if team dynamics change.",
+  "evaluation_history": [
+    { "date": "2026-02-10", "score": 58, "verdict": "MEH", "trigger": "initial" }
+  ]
+}

@@ -11,13 +11,13 @@ export async function GET(
   const { slug } = await params;
 
   try {
-    const ideaResult = await getFileContent<Idea>(`ideas/${slug}/idea.json`);
+    const ideaResult = await getFileContent<Idea>(`database/ideas/${slug}/idea.json`);
     if (!ideaResult) {
       return NextResponse.json({ error: "Idea not found" }, { status: 404 });
     }
 
     let notes: NotesFile = { notes: [] };
-    const notesResult = await getFileContent<NotesFile>(`ideas/${slug}/notes.json`);
+    const notesResult = await getFileContent<NotesFile>(`database/ideas/${slug}/notes.json`);
     if (notesResult) {
       notes = notesResult.data;
     }

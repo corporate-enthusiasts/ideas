@@ -1,0 +1,35 @@
+{
+  "id": "mexico-immigration-helper",
+  "name": "Mexico Immigration Helper",
+  "one_liner": "AI guide for foreigners navigating Mexican immigration",
+  "submitter": "ben",
+  "created": "2026-02-12",
+  "updated": "2026-02-12",
+  "status": "evaluated",
+  "type": "consumer_app",
+  "effort_level": "solo",
+  "tags": ["mexico", "immigration", "chatbot", "seo"],
+  "brief": {
+    "problem": "Foreigners moving to Mexico face a confusing maze of immigration processes — CURP, RFC, temporary residency, FM3, bank accounts — with no good English-language resource.",
+    "target_user": "Expats, digital nomads, and retirees moving to Mexico",
+    "proposed_solution": "AI chatbot and step-by-step guides for every immigration process. Personalized based on nationality, visa type, and location.",
+    "value_prop": "Navigate Mexican immigration without expensive lawyers or scattered blog posts",
+    "initial_revenue_model": "Free tool + premium consultation upsell + affiliate (immigration lawyers)"
+  },
+  "scores": {
+    "ai_leverage": { "score": 3, "reasoning": "AI handles Q&A well but core value is curated knowledge, not AI magic. ChatGPT can answer some of these questions already." },
+    "competition": { "score": 4, "reasoning": "No dedicated tool exists. Just scattered blog posts and Facebook groups. Low competition." },
+    "bootstrappability": { "score": 5, "reasoning": "Simple web app with chatbot. No complex infrastructure needed. Can start with static guides + AI chat overlay." },
+    "revenue_clarity": { "score": 3, "reasoning": "Consultation upsell and affiliate revenue are clear but margins uncertain. SEO traffic is free but monetization per visitor may be low." },
+    "passive_potential": { "score": 4, "reasoning": "SEO-driven traffic is passive. Content needs occasional updates when laws change but mostly evergreen." },
+    "team_fit": { "score": 5, "reasoning": "Ben lived in Mexico for 5 years and navigated every one of these processes personally. Authentic expertise." },
+    "side_project_viability": { "score": 5, "reasoning": "Very easy to build incrementally. Start with 3 guides, add more over time." },
+    "market_timing": { "score": 4, "reasoning": "More Americans moving to Mexico every year. Remote work trend accelerating. Growing market." }
+  },
+  "composite_score": 72,
+  "verdict": "PROMISING",
+  "summary": "Mexico Immigration Helper leverages Bens 5 years of lived experience navigating Mexican immigration. Strong SEO potential with growing market of expats and digital nomads. Low competition — no dedicated tool exists. Easy to bootstrap and grow incrementally. Main risk is monetization — free content may be hard to convert to revenue.",
+  "evaluation_history": [
+    { "date": "2026-02-12", "score": 72, "verdict": "PROMISING", "trigger": "initial" }
+  ]
+}

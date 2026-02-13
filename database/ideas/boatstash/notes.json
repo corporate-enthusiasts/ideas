@@ -1,0 +1,18 @@
+{
+  "notes": [
+    {
+      "id": "note_1739350800",
+      "author": "ben",
+      "date": "2026-02-12",
+      "text": "Research confirmed: LOB is a real acronym cruisers use. Forum posts show DIY solutions (numbered bins, spreadsheets). No good app exists.",
+      "type": "validation"
+    },
+    {
+      "id": "note_1739350801",
+      "author": "nick",
+      "date": "2026-02-12",
+      "text": "Offline-first sync is harder than it looks — need to research CRDTs or simpler alternatives.",
+      "type": "concern"
+    }
+  ]
+}

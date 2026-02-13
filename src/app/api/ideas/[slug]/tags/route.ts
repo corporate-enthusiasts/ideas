@@ -9,7 +9,7 @@ export async function PATCH(
   const { slug } = await params;
   const updates = await request.json();
 
-  const path = `ideas/${slug}/idea.json`;
+  const path = `database/ideas/${slug}/idea.json`;
 
   try {
     const existing = await getFileContent<Idea>(path);

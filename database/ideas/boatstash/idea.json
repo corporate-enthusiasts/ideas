@@ -1,0 +1,35 @@
+{
+  "id": "boatstash",
+  "name": "BoatStash",
+  "one_liner": "Photo-based parts inventory for cruisers",
+  "submitter": "ben",
+  "created": "2026-02-12",
+  "updated": "2026-02-12",
+  "status": "evaluated",
+  "type": "consumer_app",
+  "effort_level": "solo",
+  "tags": ["boat", "offline-first", "ai-vision"],
+  "brief": {
+    "problem": "Boat owners lose track of spare parts stored in 50+ compartments. LOB (Lost On Boat) is a known problem — cruisers coined an acronym for it.",
+    "target_user": "Liveaboard cruisers and bluewater sailors with boats 30ft+",
+    "proposed_solution": "Snap photos of bin contents, AI identifies and catalogs items. Search where is my spare impeller and get the answer instantly.",
+    "value_prop": "Find any part in seconds instead of tearing apart the boat",
+    "initial_revenue_model": "Freemium - free for 1 boat/50 items, $4.99/mo for unlimited"
+  },
+  "scores": {
+    "ai_leverage": { "score": 4, "reasoning": "Core functionality is AI vision — identifying parts from photos, categorizing, and making them searchable. Strong AI moat." },
+    "competition": { "score": 4, "reasoning": "No direct competitor for boat-specific parts inventory. Generic apps like Sortly exist but are not boat-specific. Very low competition." },
+    "bootstrappability": { "score": 4, "reasoning": "Can launch with mobile app + cloud sync. Offline-first adds complexity but is technically feasible with existing frameworks." },
+    "revenue_clarity": { "score": 3, "reasoning": "Freemium model is clear. Cruisers will pay $150-300/year for self-reliance tools. Lifetime license ($49-99) may work better than subscription." },
+    "passive_potential": { "score": 4, "reasoning": "Once built, runs itself. AI handles cataloging, users self-serve. Minimal support needed." },
+    "team_fit": { "score": 5, "reasoning": "Ben moving to La Paz (huge boat community), dad has a boat, friends sailing around the world. Perfect distribution network." },
+    "side_project_viability": { "score": 4, "reasoning": "Can build MVP in spare time. Offline-first architecture is the main complexity but doable." },
+    "market_timing": { "score": 3, "reasoning": "Boat market is steady. AI vision tech is mature enough now. No specific urgency but no headwinds either." }
+  },
+  "composite_score": 78,
+  "verdict": "STRONG",
+  "summary": "BoatStash addresses the validated LOB (Lost On Boat) problem with a photo-first AI inventory system. Very low competition in boat-specific parts tracking, strong distribution through Bens sailing network, and liveaboard cruisers have proven willingness to pay $150-300/yr for self-reliance tools. Main technical challenge is offline-first architecture, but this is also the competitive moat.",
+  "evaluation_history": [
+    { "date": "2026-02-12", "score": 78, "verdict": "STRONG", "trigger": "initial" }
+  ]
+}

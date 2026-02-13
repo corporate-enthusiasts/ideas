@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Corporate Enthusiasts Idea",
+  "description": "Schema for evaluated business ideas in the Corporate Enthusiasts pipeline",
+  "type": "object",
+  "required": ["id", "name", "one_liner", "submitter", "created", "status", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "URL-safe slug (e.g., 'boatstash', 'voice-reservation-bot')"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable idea name"
+    },
+    "one_liner": {
+      "type": "string",
+      "description": "One sentence elevator pitch (max 15 words)"
+    },
+    "submitter": {
+      "type": "string",
+      "enum": ["ben", "troy", "nick", "jordan", "andrew"]
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "evaluated", "re-evaluated", "building", "archived"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["consumer_app", "smb_service", "marketplace", "saas", "physical_product", "other"]
+    },
+    "effort_level": {
+      "type": "string",
+      "enum": ["solo", "pair", "team"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "brief": {
+      "type": "object",
+      "properties": {
+        "problem": { "type": "string" },
+        "target_user": { "type": "string" },
+        "proposed_solution": { "type": "string" },
+        "value_prop": { "type": "string" },
+        "initial_revenue_model": { "type": "string" }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "properties": {
+        "ai_leverage": { "$ref": "#/definitions/score_entry" },
+        "competition": { "$ref": "#/definitions/score_entry" },
+        "bootstrappability": { "$ref": "#/definitions/score_entry" },
+        "revenue_clarity": { "$ref": "#/definitions/score_entry" },
+        "passive_potential": { "$ref": "#/definitions/score_entry" },
+        "team_fit": { "$ref": "#/definitions/score_entry" },
+        "side_project_viability": { "$ref": "#/definitions/score_entry" },
+        "market_timing": { "$ref": "#/definitions/score_entry" }
+      }
+    },
+    "composite_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["STRONG", "PROMISING", "MEH", "PASS"]
+    },
+    "workshop": { "type": "object" },
+    "market_research": { "type": "object" },
+    "feasibility": { "type": "object" },
+    "monetization": { "type": "object" },
+    "summary": { "type": "string" },
+    "evaluation_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "score": { "type": "number" },
+          "verdict": { "type": "string" },
+          "trigger": { "type": "string" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "score_entry": {
+      "type": "object",
+      "properties": {
+        "score": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "reasoning": { "type": "string" }
+      },
+      "required": ["score", "reasoning"]
+    },
+    "unit_economics_tier": {
+      "type": "object",
+      "properties": {
+        "monthly_revenue": { "type": "string" },
+        "monthly_costs": { "type": "string" },
+        "margin": { "type": "string" },
+        "assumptions": { "type": "string" }
+      }
+    }
+  }
+}

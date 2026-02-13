@@ -1,0 +1,25 @@
+{
+  "notes": [
+    {
+      "id": "note_1739350803",
+      "author": "troy",
+      "date": "2026-02-10",
+      "text": "Talked to a restaurant owner friend — they miss 30% of calls during rush. Would pay $50/mo instantly.",
+      "type": "validation"
+    },
+    {
+      "id": "note_1739350804",
+      "author": "ben",
+      "date": "2026-02-11",
+      "text": "Competition is heating up fast. Bland AI just raised $16M. We would need to find a very specific niche to compete.",
+      "type": "concern"
+    },
+    {
+      "id": "note_1739350805",
+      "author": "nick",
+      "date": "2026-02-12",
+      "text": "What if we focused on Spanish-language businesses? Much less competition there.",
+      "type": "pivot"
+    }
+  ]
+}

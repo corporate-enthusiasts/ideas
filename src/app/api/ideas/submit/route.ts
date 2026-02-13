@@ -58,13 +58,13 @@ export async function POST(request: Request) {
 
   try {
     await putFileContent(
-      `ideas/${slug}/idea.json`,
+      `database/ideas/${slug}/idea.json`,
       JSON.stringify(idea, null, 2),
       `Add draft idea: ${name}`,
     );
 
     await putFileContent(
-      `ideas/${slug}/notes.json`,
+      `database/ideas/${slug}/notes.json`,
       JSON.stringify(notes, null, 2),
       `Initialize notes for ${slug}`,
     );

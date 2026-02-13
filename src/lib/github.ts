@@ -3,7 +3,7 @@ import { Octokit } from "octokit";
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 const OWNER = process.env.GITHUB_OWNER || "corporate-enthusiasts";
-const REPO = process.env.GITHUB_REPO || "botboys-ideas";
+const REPO = process.env.GITHUB_REPO || "ideas";
 
 interface GitHubContentFile {
   type: string;
@@ -19,7 +19,7 @@ export async function listIdeaSlugs(): Promise<string[]> {
     const { data } = await octokit.rest.repos.getContent({
       owner: OWNER,
       repo: REPO,
-      path: "ideas",
+      path: "database/ideas",
     });
 
     if (!Array.isArray(data)) return [];
