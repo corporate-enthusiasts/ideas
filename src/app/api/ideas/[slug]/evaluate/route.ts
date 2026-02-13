@@ -3,6 +3,8 @@ import { getFileContent, getRawFileContent, putFileContent } from "@/lib/github"
 import { buildScoringPrompt, callAnthropic } from "@/lib/scoring";
 import type { Idea, NotesFile } from "@/lib/types";
 
+export const maxDuration = 60;
+
 export async function POST(
   _request: Request,
   { params }: { params: Promise<{ slug: string }> },
