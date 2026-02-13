@@ -41,7 +41,7 @@ export default function ScoreBar({ label, scoreKey, score, reasoning }: ScoreBar
         />
       </div>
       {reasoning && (
-        <p className="mt-1.5 max-h-0 overflow-hidden text-xs leading-relaxed text-[var(--text-tertiary)] transition-all duration-200 group-hover:max-h-24">
+        <p className="mt-1.5 max-h-0 overflow-hidden text-[13px] leading-relaxed text-[var(--text-secondary)] transition-all duration-200 group-hover:max-h-24">
           {reasoning}
         </p>
       )}

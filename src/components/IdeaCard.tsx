@@ -34,7 +34,7 @@ export default function IdeaCard({ idea, index }: IdeaCardProps) {
                 {isDraft ? "?" : idea.composite_score}
               </div>
               <div>
-                <h3 className="text-[15px] font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)]  transition-colors">
+                <h3 className="text-[15px] font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent-hover)] transition-colors">
                   {idea.name}
                 </h3>
                 <p className="mt-0.5 text-sm text-[var(--text-secondary)] line-clamp-1">{idea.one_liner}</p>

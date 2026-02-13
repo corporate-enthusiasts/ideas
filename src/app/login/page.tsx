@@ -45,7 +45,7 @@ export default function LoginPage() {
             </svg>
           </div>
           <h1 className="text-xl font-bold tracking-tight text-[var(--text-primary)]">The Lab</h1>
-          <p className="mt-1 text-sm text-[var(--text-tertiary)]">Quiet Quitting idea pipeline</p>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">Corporate Enthusiasts idea pipeline</p>
         </div>
 
         {/* Form */}

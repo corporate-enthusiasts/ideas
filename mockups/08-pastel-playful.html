@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 — Pastel Playful</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background: #f8f7ff; color: #2d2b55; min-height: 100vh; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  .badge { position: fixed; top: 16px; left: 16px; background: #7c6fea; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; z-index: 99; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+  .header h1 { font-size: 32px; font-weight: 900; color: #2d2b55; }
+  .header p { font-size: 14px; color: #8b85b1; margin-top: 2px; }
+  .btn-primary { background: #7c6fea; color: #fff; border: none; padding: 12px 24px; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; box-shadow: 0 4px 16px rgba(124, 111, 234, 0.3); }
+  .btn-primary:hover { background: #6b5dd3; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(124, 111, 234, 0.4); }
+
+  .filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .filter-pill { padding: 8px 16px; border-radius: 20px; border: 2px solid #e8e5f8; background: #fff; font-size: 13px; font-weight: 600; color: #8b85b1; cursor: pointer; font-family: inherit; }
+  .filter-pill:hover { border-color: #7c6fea; color: #7c6fea; }
+  .filter-pill.active { border-color: #7c6fea; background: #ede9ff; color: #7c6fea; }
+  .sort { margin-left: auto; }
+
+  .cards { display: flex; flex-direction: column; gap: 14px; }
+  .card { border-radius: 16px; padding: 22px; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .card-left { display: flex; align-items: center; gap: 14px; }
+  .score-circle { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; flex-shrink: 0; }
+  .card h3 { font-size: 16px; font-weight: 800; color: #2d2b55; }
+  .card .one-liner { font-size: 13px; color: #8b85b1; margin-top: 3px; }
+  .verdict-badge { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .tag { padding: 4px 12px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .card-meta { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #b0acc8; font-weight: 600; }
+
+  /* STRONG = soft green */
+  .strong { background: #ecfdf3; }
+  .strong:hover { border-color: #86efac; }
+  .strong .score-circle { background: #bbf7d0; color: #15803d; }
+  .strong .verdict-badge { background: #bbf7d0; color: #15803d; }
+  .strong .tag { background: #d1fae5; color: #166534; }
+
+  /* PROMISING = soft blue */
+  .promising { background: #eff6ff; }
+  .promising:hover { border-color: #93c5fd; }
+  .promising .score-circle { background: #bfdbfe; color: #1d4ed8; }
+  .promising .verdict-badge { background: #bfdbfe; color: #1d4ed8; }
+  .promising .tag { background: #dbeafe; color: #1e40af; }
+
+  /* MEH = soft peach */
+  .meh { background: #fff7ed; }
+  .meh:hover { border-color: #fdba74; }
+  .meh .score-circle { background: #fed7aa; color: #c2410c; }
+  .meh .verdict-badge { background: #fed7aa; color: #c2410c; }
+  .meh .tag { background: #ffedd5; color: #9a3412; }
+
+  .score-section { margin-top: 32px; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+  .score-section h2 { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #8b85b1; margin-bottom: 18px; }
+  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .score-label { width: 140px; font-size: 13px; font-weight: 700; color: #2d2b55; flex-shrink: 0; }
+  .weight { font-size: 9px; color: #b0acc8; font-weight: 600; }
+  .score-bar-bg { flex: 1; height: 10px; background: #f0eef8; border-radius: 5px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 5px; }
+  .score-val { font-size: 13px; font-weight: 800; width: 32px; text-align: right; }
+
+  .s5 { width: 100%; background: linear-gradient(90deg, #86efac, #22c55e); } .sv5 { color: #16a34a; }
+  .s4 { width: 80%; background: linear-gradient(90deg, #93c5fd, #3b82f6); } .sv4 { color: #2563eb; }
+  .s3 { width: 60%; background: linear-gradient(90deg, #fdba74, #f97316); } .sv3 { color: #ea580c; }
+  .s2 { width: 40%; background: linear-gradient(90deg, #fca5a5, #ef4444); } .sv2 { color: #dc2626; }
+</style>
+</head>
+<body>
+  <div class="badge">08 / Pastel Playful</div>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>The Lab</h1>
+        <p>Quiet Quitting idea pipeline</p>
+      </div>
+      <button class="btn-primary">+ New Idea</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Consumer App</button>
+      <button class="filter-pill">SMB SaaS</button>
+      <button class="filter-pill">Solo Build</button>
+      <button class="filter-pill sort">Score ↓</button>
+    </div>
+
+    <div class="cards">
+      <div class="card strong">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">78</div>
+            <div><h3>BoatStash</h3><div class="one-liner">Photo-based parts inventory for cruisers</div></div>
+          </div>
+          <span class="verdict-badge">STRONG</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>2 notes</span></div>
+      </div>
+
+      <div class="card promising">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">72</div>
+            <div><h3>Mexico Immigration Helper</h3><div class="one-liner">AI guide for foreigners navigating Mexican immigration</div></div>
+          </div>
+          <span class="verdict-badge">PROMISING</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>1 note</span></div>
+      </div>
+
+      <div class="card meh">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">58</div>
+            <div><h3>Voice Reservation Bot</h3><div class="one-liner">AI answers phones for small businesses</div></div>
+          </div>
+          <span class="verdict-badge">MEH</span>
+        </div>
+        <div class="card-tags"><span class="tag">SMB SaaS</span><span class="tag">Team Project</span></div>
+        <div class="card-meta"><span>troy</span><span>2026-02-10</span><span>3 notes</span></div>
+      </div>
+    </div>
+
+    <div class="score-section">
+      <h2>Scores — BoatStash</h2>
+      <div class="score-row"><span class="score-label">Team Fit <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s5"></div></div><span class="score-val sv5">5/5</span></div>
+      <div class="score-row"><span class="score-label">AI Leverage</span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Competition <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Bootstrappability <span class="weight">1.25x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Revenue Clarity</span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+      <div class="score-row"><span class="score-label">Market Timing <span class="weight">0.75x</span></span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+    </div>
+  </div>
+</body>
+</html>

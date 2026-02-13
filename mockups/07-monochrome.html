@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 — Monochrome</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #fafafa; color: #000; min-height: 100vh; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  .badge { position: fixed; top: 16px; left: 16px; background: #000; color: #fff; padding: 6px 14px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; z-index: 99; border: none; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; border-bottom: 2px solid #000; padding-bottom: 20px; }
+  .header h1 { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; letter-spacing: -1px; color: #000; text-transform: uppercase; }
+  .header p { font-size: 14px; color: #555; margin-top: 4px; }
+  .btn-primary { background: #000; color: #fff; border: none; padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Space Mono', monospace; text-transform: uppercase; letter-spacing: 0.5px; }
+  .btn-primary:hover { background: #333; }
+
+  .filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .filter-pill { padding: 6px 14px; border: 1px solid #000; background: #fff; font-size: 12px; font-weight: 500; color: #000; cursor: pointer; font-family: inherit; }
+  .filter-pill:hover { background: #000; color: #fff; }
+  .filter-pill.active { background: #000; color: #fff; }
+  .sort { margin-left: auto; }
+
+  .cards { display: flex; flex-direction: column; gap: 1px; background: #000; border: 1px solid #000; }
+  .card { padding: 20px; background: #fff; cursor: pointer; transition: background 0.1s; }
+  .card:hover { background: #f5f5f5; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .card-left { display: flex; align-items: center; gap: 14px; }
+  .score-circle { width: 48px; height: 48px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; flex-shrink: 0; color: #000; }
+  .card h3 { font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700; color: #000; }
+  .card .one-liner { font-size: 13px; color: #555; margin-top: 2px; }
+  .verdict-badge { padding: 4px 12px; border: 1px solid #000; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; background: #fff; color: #000; }
+  .card-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .tag { padding: 3px 10px; border: 1px solid #ccc; font-size: 11px; font-weight: 500; color: #555; }
+  .card-meta { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #999; }
+
+  /* Verdict accent — scarlet is the ONLY color */
+  .strong .verdict-badge { border-color: #dc2626; color: #dc2626; }
+  .strong .score-circle { border-color: #dc2626; color: #dc2626; }
+  .promising .verdict-badge { border-color: #000; color: #000; }
+  .promising .score-circle { border-color: #000; color: #000; }
+  .meh .verdict-badge { border-color: #999; color: #999; }
+  .meh .score-circle { border-color: #999; color: #999; }
+
+  .score-section { margin-top: 32px; border: 1px solid #000; padding: 20px; background: #fff; }
+  .score-section h2 { font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #000; margin-bottom: 16px; }
+  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .score-label { width: 140px; font-size: 13px; font-weight: 500; color: #000; flex-shrink: 0; }
+  .weight { font-size: 9px; color: #999; }
+  .score-bar-bg { flex: 1; height: 4px; background: #e5e5e5; overflow: hidden; }
+  .score-bar-fill { height: 100%; background: #000; }
+  .score-val { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; width: 32px; text-align: right; color: #000; }
+
+  .s5 { width: 100%; } .s4 { width: 80%; } .s3 { width: 60%; } .s2 { width: 40%; }
+  .sv-accent { color: #dc2626; }
+</style>
+</head>
+<body>
+  <div class="badge">07 / Monochrome</div>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>The Lab</h1>
+        <p>Quiet Quitting idea pipeline</p>
+      </div>
+      <button class="btn-primary">+ New Idea</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Consumer App</button>
+      <button class="filter-pill">SMB SaaS</button>
+      <button class="filter-pill">Solo Build</button>
+      <button class="filter-pill sort">Score ↓</button>
+    </div>
+
+    <div class="cards">
+      <div class="card strong">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">78</div>
+            <div><h3>BoatStash</h3><div class="one-liner">Photo-based parts inventory for cruisers</div></div>
+          </div>
+          <span class="verdict-badge">STRONG</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>2 notes</span></div>
+      </div>
+
+      <div class="card promising">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">72</div>
+            <div><h3>Mexico Immigration Helper</h3><div class="one-liner">AI guide for foreigners navigating Mexican immigration</div></div>
+          </div>
+          <span class="verdict-badge">PROMISING</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>1 note</span></div>
+      </div>
+
+      <div class="card meh">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">58</div>
+            <div><h3>Voice Reservation Bot</h3><div class="one-liner">AI answers phones for small businesses</div></div>
+          </div>
+          <span class="verdict-badge">MEH</span>
+        </div>
+        <div class="card-tags"><span class="tag">SMB SaaS</span><span class="tag">Team Project</span></div>
+        <div class="card-meta"><span>troy</span><span>2026-02-10</span><span>3 notes</span></div>
+      </div>
+    </div>
+
+    <div class="score-section">
+      <h2>Scores — BoatStash</h2>
+      <div class="score-row"><span class="score-label">Team Fit <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s5"></div></div><span class="score-val sv-accent">5/5</span></div>
+      <div class="score-row"><span class="score-label">AI Leverage</span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val">4/5</span></div>
+      <div class="score-row"><span class="score-label">Competition <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val">4/5</span></div>
+      <div class="score-row"><span class="score-label">Bootstrappability <span class="weight">1.25x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val">4/5</span></div>
+      <div class="score-row"><span class="score-label">Revenue Clarity</span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val">3/5</span></div>
+      <div class="score-row"><span class="score-label">Market Timing <span class="weight">0.75x</span></span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val">3/5</span></div>
+    </div>
+  </div>
+</body>
+</html>

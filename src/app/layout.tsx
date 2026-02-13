@@ -8,8 +8,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "The Lab — Quiet Quitting",
-  description: "Idea evaluation board for Quiet Quitting",
+  title: "The Lab — Corporate Enthusiasts",
+  description: "Idea evaluation board for Corporate Enthusiasts",
 };
 
 export default function RootLayout({

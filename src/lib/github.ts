@@ -2,7 +2,7 @@ import { Octokit } from "octokit";
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-const OWNER = process.env.GITHUB_OWNER || "quiet-quitting";
+const OWNER = process.env.GITHUB_OWNER || "corporate-enthusiasts";
 const REPO = process.env.GITHUB_REPO || "botboys-ideas";
 
 interface GitHubContentFile {

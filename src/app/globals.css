@@ -6,27 +6,27 @@
 
 :root {
   /* Backgrounds */
-  --bg: #0c0d12;
-  --bg-surface: #14161e;
-  --bg-surface-hover: #1c1f2b;
-  --bg-surface-raised: #1e2130;
-  --bg-input: #111318;
+  --bg: #0e1017;
+  --bg-surface: #181a24;
+  --bg-surface-hover: #222533;
+  --bg-surface-raised: #252838;
+  --bg-input: #13151c;
 
   /* Borders */
-  --border: #252837;
-  --border-subtle: #1e2130;
-  --border-focus: #f59e0b;
+  --border: #2e3248;
+  --border-subtle: #252838;
+  --border-focus: #6370a8;
 
   /* Text */
-  --text-primary: #e4e4ec;
-  --text-secondary: #8b8fa3;
-  --text-tertiary: #5c5f73;
-  --text-inverse: #0c0d12;
+  --text-primary: #f0f0f6;
+  --text-secondary: #a1a5b8;
+  --text-tertiary: #737691;
+  --text-inverse: #0e1017;
 
   /* Accents */
-  --accent: #f59e0b;
-  --accent-hover: #fbbf24;
-  --accent-muted: rgba(245, 158, 11, 0.12);
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-muted: rgba(129, 140, 248, 0.10);
 
   /* Verdict colors */
   --verdict-strong: #22c55e;
@@ -46,7 +46,7 @@
 
   /* Score bar gradient */
   --score-low: #ef4444;
-  --score-mid: #f59e0b;
+  --score-mid: #e0a832;
   --score-high: #22c55e;
 }
 

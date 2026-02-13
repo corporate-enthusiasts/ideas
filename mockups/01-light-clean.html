@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 — Light Clean</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Manrope', sans-serif; background: #ffffff; color: #1a1a2e; min-height: 100vh; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  .badge { position: fixed; top: 16px; left: 16px; background: #1a1a2e; color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; z-index: 99; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #1a1a2e; }
+  .header p { font-size: 14px; color: #6b7280; margin-top: 2px; }
+  .btn-primary { background: #2563eb; color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .btn-primary:hover { background: #1d4ed8; }
+
+  .filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .filter-pill { padding: 6px 14px; border-radius: 8px; border: 1.5px solid #e5e7eb; background: #fff; font-size: 12px; font-weight: 500; color: #6b7280; cursor: pointer; font-family: inherit; }
+  .filter-pill:hover { border-color: #2563eb; color: #2563eb; }
+  .filter-pill.active { border-color: #2563eb; background: #eff6ff; color: #2563eb; }
+  .sort { margin-left: auto; }
+
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+  .card { border: 1.5px solid #e5e7eb; border-radius: 14px; padding: 20px; background: #fff; transition: all 0.15s; cursor: pointer; }
+  .card:hover { border-color: #2563eb; box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .card-left { display: flex; align-items: center; gap: 12px; }
+  .score-circle { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+  .card h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .card .one-liner { font-size: 13px; color: #6b7280; margin-top: 2px; }
+  .verdict-badge { padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .tag { padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 500; background: #f3f4f6; color: #4b5563; }
+  .card-meta { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #9ca3af; }
+
+  .strong .score-circle { background: #dcfce7; color: #16a34a; }
+  .strong .verdict-badge { background: #dcfce7; color: #16a34a; }
+  .promising .score-circle { background: #dbeafe; color: #2563eb; }
+  .promising .verdict-badge { background: #dbeafe; color: #2563eb; }
+  .meh .score-circle { background: #fef3c7; color: #d97706; }
+  .meh .verdict-badge { background: #fef3c7; color: #d97706; }
+
+  .score-section { margin-top: 32px; border: 1.5px solid #e5e7eb; border-radius: 14px; padding: 20px; }
+  .score-section h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin-bottom: 16px; }
+  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .score-label { width: 130px; font-size: 13px; font-weight: 500; color: #374151; flex-shrink: 0; }
+  .score-bar-bg { flex: 1; height: 6px; background: #f3f4f6; border-radius: 3px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 3px; }
+  .score-val { font-size: 12px; font-weight: 700; width: 32px; text-align: right; }
+  .s5 { width: 100%; background: #16a34a; } .sv5 { color: #16a34a; }
+  .s4 { width: 80%; background: #2563eb; } .sv4 { color: #2563eb; }
+  .s3 { width: 60%; background: #d97706; } .sv3 { color: #d97706; }
+  .s2 { width: 40%; background: #ef4444; } .sv2 { color: #ef4444; }
+</style>
+</head>
+<body>
+  <div class="badge">01 / Light Clean</div>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>The Lab</h1>
+        <p>Quiet Quitting idea pipeline</p>
+      </div>
+      <button class="btn-primary">+ New Idea</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Consumer App</button>
+      <button class="filter-pill">SMB SaaS</button>
+      <button class="filter-pill">Solo Build</button>
+      <button class="filter-pill sort">Score ↓</button>
+    </div>
+
+    <div class="cards">
+      <div class="card strong">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">78</div>
+            <div><h3>BoatStash</h3><div class="one-liner">Photo-based parts inventory for cruisers</div></div>
+          </div>
+          <span class="verdict-badge">STRONG</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>2 notes</span></div>
+      </div>
+
+      <div class="card promising">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">72</div>
+            <div><h3>Mexico Immigration Helper</h3><div class="one-liner">AI guide for foreigners navigating Mexican immigration</div></div>
+          </div>
+          <span class="verdict-badge">PROMISING</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>1 note</span></div>
+      </div>
+
+      <div class="card meh">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">58</div>
+            <div><h3>Voice Reservation Bot</h3><div class="one-liner">AI answers phones for small businesses</div></div>
+          </div>
+          <span class="verdict-badge">MEH</span>
+        </div>
+        <div class="card-tags"><span class="tag">SMB SaaS</span><span class="tag">Team Project</span></div>
+        <div class="card-meta"><span>troy</span><span>2026-02-10</span><span>3 notes</span></div>
+      </div>
+    </div>
+
+    <div class="score-section">
+      <h2>Scores — BoatStash</h2>
+      <div class="score-row"><span class="score-label">Team Fit <span style="font-size:9px;color:#9ca3af">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s5"></div></div><span class="score-val sv5">5/5</span></div>
+      <div class="score-row"><span class="score-label">AI Leverage</span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Competition <span style="font-size:9px;color:#9ca3af">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Bootstrappability <span style="font-size:9px;color:#9ca3af">1.25x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Revenue Clarity</span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+      <div class="score-row"><span class="score-label">Market Timing <span style="font-size:9px;color:#9ca3af">0.75x</span></span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+    </div>
+  </div>
+</body>
+</html>

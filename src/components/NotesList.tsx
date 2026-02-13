@@ -28,7 +28,7 @@ export default function NotesList({ notes }: { notes: Note[] }) {
                 {note.type}
               </span>
             </div>
-            <p className="text-[13px] leading-relaxed text-[var(--text-secondary)]">{note.text}</p>
+            <p className="text-[14px] leading-relaxed text-[var(--text-primary)]">{note.text}</p>
           </div>
         );
       })}

@@ -23,8 +23,8 @@ interface DetailData {
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
-      <h2 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">{title}</h2>
+    <section className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-6">
+      <h2 className="mb-4 text-[12px] font-bold uppercase tracking-widest text-[var(--text-secondary)]">{title}</h2>
       {children}
     </section>
   );
@@ -99,11 +99,11 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         {/* Tags */}
         <Section title="Details">
           <TagEditor idea={idea} onUpdated={mutate} />
-          <div className="mt-3 flex flex-wrap gap-4 text-[12px] text-[var(--text-tertiary)]">
-            <span>Submitter: <span className="text-[var(--text-secondary)]">{idea.submitter}</span></span>
-            <span>Created: <span className="text-[var(--text-secondary)]">{idea.created}</span></span>
+          <div className="mt-3 flex flex-wrap gap-4 text-[13px] text-[var(--text-tertiary)]">
+            <span>Submitter: <span className="text-[var(--text-primary)]">{idea.submitter}</span></span>
+            <span>Created: <span className="text-[var(--text-primary)]">{idea.created}</span></span>
             {idea.updated !== idea.created && (
-              <span>Updated: <span className="text-[var(--text-secondary)]">{idea.updated}</span></span>
+              <span>Updated: <span className="text-[var(--text-primary)]">{idea.updated}</span></span>
             )}
           </div>
         </Section>
@@ -129,12 +129,12 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         {/* Summary */}
         {idea.summary && (
           <Section title="Summary">
-            <p className={`text-[13px] leading-relaxed text-[var(--text-secondary)] ${!summaryOpen ? "line-clamp-3" : ""}`}>
+            <p className={`text-[15px] leading-relaxed text-[var(--text-primary)] ${!summaryOpen ? "line-clamp-3" : ""}`}>
               {idea.summary}
             </p>
             <button
               onClick={() => setSummaryOpen(!summaryOpen)}
-              className="mt-2 text-[12px] font-medium text-[var(--accent)] hover:underline"
+              className="mt-3 text-[13px] font-medium text-[var(--accent)] hover:underline"
             >
               {summaryOpen ? "Collapse" : "Read full report"}
             </button>
@@ -144,13 +144,13 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         {/* Brief */}
         {idea.brief && idea.brief.problem && (
           <Section title="Brief">
-            <dl className="space-y-3">
+            <dl className="space-y-4">
               {Object.entries(idea.brief).map(([key, val]) => {
                 if (!val) return null;
                 return (
                   <div key={key}>
-                    <dt className="text-[11px] font-bold uppercase tracking-wide text-[var(--text-tertiary)]">{key.replace(/_/g, " ")}</dt>
-                    <dd className="mt-0.5 text-[13px] leading-relaxed text-[var(--text-secondary)]">{val}</dd>
+                    <dt className="text-[12px] font-bold uppercase tracking-wide text-[var(--text-secondary)]">{key.replace(/_/g, " ")}</dt>
+                    <dd className="mt-1 text-[15px] leading-relaxed text-[var(--text-primary)]">{val}</dd>
                   </div>
                 );
               })}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 — Midnight Teal</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Sora', sans-serif; background: #0f172a; color: #f1f5f9; min-height: 100vh; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+  .badge { position: fixed; top: 16px; left: 16px; background: #14b8a6; color: #0f172a; padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 700; z-index: 99; letter-spacing: 0.5px; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #f1f5f9; }
+  .header p { font-size: 14px; color: #64748b; margin-top: 3px; font-weight: 500; }
+  .btn-primary { background: #14b8a6; color: #0f172a; border: none; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+  .btn-primary:hover { background: #2dd4bf; }
+
+  .filters { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+  .filter-pill { padding: 6px 15px; border-radius: 8px; border: 1.5px solid #334155; background: #1e293b; font-size: 12px; font-weight: 600; color: #64748b; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+  .filter-pill:hover { border-color: #14b8a6; color: #5eead4; }
+  .filter-pill.active { border-color: #14b8a6; background: rgba(20,184,166,0.1); color: #5eead4; }
+  .sort { margin-left: auto; }
+
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+  .card { border: 1.5px solid #334155; border-radius: 14px; padding: 20px; background: #1e293b; transition: all 0.15s; cursor: pointer; }
+  .card:hover { border-color: #14b8a6; box-shadow: 0 4px 28px rgba(20,184,166,0.1); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .card-left { display: flex; align-items: center; gap: 12px; }
+  .score-circle { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+  .card h3 { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+  .card .one-liner { font-size: 13px; color: #94a3b8; margin-top: 2px; font-weight: 400; }
+  .verdict-badge { padding: 4px 11px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
+  .card-tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .tag { padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; background: #0f172a; color: #94a3b8; border: 1px solid #334155; }
+  .card-meta { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #475569; font-weight: 500; }
+
+  .strong .score-circle { background: rgba(20,184,166,0.15); color: #14b8a6; }
+  .strong .verdict-badge { background: rgba(20,184,166,0.15); color: #14b8a6; }
+  .promising .score-circle { background: rgba(56,189,248,0.15); color: #38bdf8; }
+  .promising .verdict-badge { background: rgba(56,189,248,0.15); color: #38bdf8; }
+  .meh .score-circle { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .meh .verdict-badge { background: rgba(251,191,36,0.15); color: #fbbf24; }
+
+  .score-section { margin-top: 32px; border: 1.5px solid #334155; border-radius: 14px; padding: 20px; background: #1e293b; }
+  .score-section h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #475569; margin-bottom: 16px; }
+  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .score-label { width: 135px; font-size: 13px; font-weight: 500; color: #cbd5e1; flex-shrink: 0; }
+  .score-bar-bg { flex: 1; height: 6px; background: #334155; border-radius: 3px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 3px; }
+  .score-val { font-size: 12px; font-weight: 700; width: 32px; text-align: right; }
+  .s5 { width: 100%; background: #14b8a6; } .sv5 { color: #14b8a6; }
+  .s4 { width: 80%; background: #38bdf8; } .sv4 { color: #38bdf8; }
+  .s3 { width: 60%; background: #fbbf24; } .sv3 { color: #fbbf24; }
+  .s2 { width: 40%; background: #f87171; } .sv2 { color: #f87171; }
+  .weight { font-size: 9px; color: #475569; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="badge">06 / Midnight Teal</div>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1>The Lab</h1>
+        <p>Quiet Quitting idea pipeline</p>
+      </div>
+      <button class="btn-primary">+ New Idea</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Consumer App</button>
+      <button class="filter-pill">SMB SaaS</button>
+      <button class="filter-pill">Solo Build</button>
+      <button class="filter-pill sort">Score &#8595;</button>
+    </div>
+
+    <div class="cards">
+      <div class="card strong">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">78</div>
+            <div><h3>BoatStash</h3><div class="one-liner">Photo-based parts inventory for cruisers</div></div>
+          </div>
+          <span class="verdict-badge">STRONG</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>2 notes</span></div>
+      </div>
+
+      <div class="card promising">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">72</div>
+            <div><h3>Mexico Immigration Helper</h3><div class="one-liner">AI guide for foreigners navigating Mexican immigration</div></div>
+          </div>
+          <span class="verdict-badge">PROMISING</span>
+        </div>
+        <div class="card-tags"><span class="tag">Consumer App</span><span class="tag">Solo Build</span></div>
+        <div class="card-meta"><span>ben</span><span>2026-02-12</span><span>1 note</span></div>
+      </div>
+
+      <div class="card meh">
+        <div class="card-top">
+          <div class="card-left">
+            <div class="score-circle">58</div>
+            <div><h3>Voice Reservation Bot</h3><div class="one-liner">AI answers phones for small businesses</div></div>
+          </div>
+          <span class="verdict-badge">MEH</span>
+        </div>
+        <div class="card-tags"><span class="tag">SMB SaaS</span><span class="tag">Team Project</span></div>
+        <div class="card-meta"><span>troy</span><span>2026-02-10</span><span>3 notes</span></div>
+      </div>
+    </div>
+
+    <div class="score-section">
+      <h2>Scores — BoatStash</h2>
+      <div class="score-row"><span class="score-label">Team Fit <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s5"></div></div><span class="score-val sv5">5/5</span></div>
+      <div class="score-row"><span class="score-label">AI Leverage</span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Competition <span class="weight">1.5x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Bootstrappability <span class="weight">1.25x</span></span><div class="score-bar-bg"><div class="score-bar-fill s4"></div></div><span class="score-val sv4">4/5</span></div>
+      <div class="score-row"><span class="score-label">Revenue Clarity</span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+      <div class="score-row"><span class="score-label">Market Timing <span class="weight">0.75x</span></span><div class="score-bar-bg"><div class="score-bar-fill s3"></div></div><span class="score-val sv3">3/5</span></div>
+    </div>
+  </div>
+</body>
+</html>
