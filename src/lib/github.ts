@@ -49,6 +49,23 @@ export async function getFileContent<T>(path: string): Promise<{ data: T; sha: s
   }
 }
 
+export async function getRawFileContent(path: string): Promise<string | null> {
+  try {
+    const { data } = await octokit.rest.repos.getContent({
+      owner: OWNER,
+      repo: REPO,
+      path,
+    });
+
+    const file = data as GitHubContentFile;
+    if (file.type !== "file" || !file.content) return null;
+
+    return Buffer.from(file.content, "base64").toString("utf-8");
+  } catch {
+    return null;
+  }
+}
+
 export async function putFileContent(
   path: string,
   content: string,

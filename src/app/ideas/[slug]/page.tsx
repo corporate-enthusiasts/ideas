@@ -9,6 +9,7 @@ import NotesList from "@/components/NotesList";
 import EvalHistory from "@/components/EvalHistory";
 import AddNoteForm from "@/components/AddNoteForm";
 import TagEditor from "@/components/TagEditor";
+import EvaluateButton from "@/components/EvaluateButton";
 import { SCORE_LABELS, VERDICT_CONFIG } from "@/lib/constants";
 import type { Idea, Note } from "@/lib/types";
 
@@ -91,6 +92,12 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
                 <VerdictBadge verdict={idea.verdict} size="lg" />
               </>
             )}
+            <EvaluateButton
+              slug={slug}
+              status={idea.status}
+              currentScore={idea.composite_score}
+              onEvaluated={mutate}
+            />
           </div>
         </div>
       </div>
