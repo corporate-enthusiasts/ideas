@@ -8,40 +8,70 @@ These bios are used by the idea evaluator to assess team fit, unique edges, and 
 
 **Role:** Builder, automation, ops
 **Location:** CDMX -> La Paz, BCS (Aug 2026)
+**Education:** BS International Business, Seattle Pacific University
 
-**Skills:**
+**Operating Experience:**
 - AI Product and Biz Ops Manager at Nuvocargo (cross-border logistics tech)
-- Full-stack rapid prototyping - builds and ships working products fast with AI-assisted dev
-- AI agents and automations: Claude Code, OpenAI SDK, n8n AI nodes
-- Low-code/no-code: n8n, Zapier, workflow automation
+- Previously at Convoy (freight/logistics tech)
 - Career spanning operations, program management, product development across tech startups
+- Process automation, system design, rapid prototyping, and operational optimization
 
-**Unique Edges:**
-- 5 years living in Latin America (Mexico, Brazil) - deep cultural fluency
+**Technical Capabilities:**
+- Full-stack rapid prototyping: builds and ships working products fast with AI-assisted development
+- AI agents and automations: Claude Code, OpenAI SDK, system prompts, n8n AI nodes
+- Low-code/no-code: n8n, Zapier, workflow automation
+- Deploys production agents, automations, and tools end-to-end
+- Can handle any coding task or tool — learns and ships quickly
+
+**Cross-Border & Cultural Edge:**
+- 5 years living in Latin America (Mexico, Brazil)
 - Trilingual: English, Spanish, Portuguese
-- From Santa Barbara, CA - moving to La Paz (huge boat community)
-- Fiancee Elena: massive CDMX network (hotel consortium owners, CFOs, influential families), former restaurant owner, trilingual (ES/EN/FR)
-- Boating/sailing community via family and friends
-- CDMX business network: restaurants, bars, hospitality
+- Deep cultural fluency — operates natively in both US and Mexico contexts
+- From Santa Barbara, CA; moving to La Paz, BCS (Aug 2026)
 
-**Best Fit:** AI-powered tools, rapid prototyping, automation services, cross-border/Latin America plays, boat/marine niche
+**Network Assets:**
+- CDMX business network: restaurants, bars, hospitality scene
+- Fiancee Elena: massive CDMX network (hotel consortium owners, CFOs, influential families), former restaurant owner, trilingual (ES/EN/FR)
+- Music and DJ community connections
+- Tech startup network: experienced operators, PMs, product builders
+- Boating/sailing community (La Paz, Santa Barbara) via family and friends
+- Contacts and networks across Latin America
+
+**Best Fit:** AI-powered tools, rapid prototyping, automation services, and cross-border/Latin America plays. Can build and operate the entire tech stack solo. Combined with Elena, uniquely suited for hospitality, experiences, and Mexico-facing products.
 
 ---
 
-## Troy
+## Troy Attinasi
 
-**Role:** US-based ops
+**Role:** Analytics, operations, data
 **Location:** San Diego
+**Education:** BBA Operations and Tech Management from UP (MIS + Supply Chain/Operations), BA Spanish (Chilean study abroad)
 
-**Skills:**
-- US-based operations: storage, packaging, shipping
-- Working on Cumbia Crate (subscription box) with Ben
+**Operating Experience:**
+- Database management technician at small data marketing company
+- Operations and data analytics at Convoy — boots on the ground support and metrics/analytics projects
+- Employee 8 at Mystery/Glue — in-person experiences turned virtual team bonding. Managed supply side of marketplace (pitching, account management, onboarding) while supporting entire company data suite (all company metrics, operations automation through SQL and Zapier)
+- Currently analytics engineer at Coinbase on crypto anti-money laundering compliance operations — SQL, operations analytics, data pipelines
 
-**Unique Edges:**
-- US physical operations capability
-- San Diego location (close to Mexico border)
+**Capital & Growth:**
+- Helped Mystery raise an $18.5M Series A through supply network relationships and company metrics
 
-**Best Fit:** Products requiring US fulfillment, physical goods, cross-border logistics
+**Go-to-Market Strengths:**
+- Relationship building
+- Data foundations
+- Operations automation and improvement
+
+**Technical Capabilities:**
+- Heavy user: GPT, Glean, Cursor, SQL, GitHub, Airflow
+- Learning: Claude Code, Python, DBT
+
+**Network Assets:**
+- Convoy network
+- Mystery network
+- Coinbase network
+- UP network
+
+**Best Fit:** Operations improvement for SMB and local businesses. Crypto, startup, and in-person experiences domains.
 
 ---
 
@@ -111,9 +141,10 @@ These bios are used by the idea evaluator to assess team fit, unique edges, and 
 |------------|-----|
 | Build & ship fast | Ben, Andrew |
 | GTM & sales | Nick, Andrew |
-| US physical ops | Troy |
+| Data & analytics | Troy |
+| Operations automation | Ben, Troy |
 | Fundraising | Nick |
-| SMB insight | Andrew, Nick |
+| SMB insight | Andrew, Nick, Troy |
 | Cross-border / LatAm | Ben |
 | AI / automation | Ben, Andrew |
 | Design / brand | Andrew |
