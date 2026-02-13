@@ -1,5 +1,9 @@
 import { readFileSync, writeFileSync } from "fs";
-import { join } from "path";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const SCORE_WEIGHTS: Record<string, number> = {
   competition: 1.5,
@@ -20,7 +24,7 @@ if (!slug) {
   process.exit(1);
 }
 
-const root = join(import.meta.dirname, "..");
+const root = join(__dirname, "..");
 const ideaPath = join(root, `database/ideas/${slug}/idea.json`);
 
 const idea = JSON.parse(readFileSync(ideaPath, "utf-8"));
