@@ -84,7 +84,7 @@ export default function BoardPage() {
           <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">
             The Lab
           </h1>
-          <p className="mt-1 text-[15px] text-[var(--text-tertiary)]">Corporate Enthusiasts idea pipeline</p>
+          <p className="mt-1 text-[15px] text-[var(--text-tertiary)]">Ideas to escape the corporate overlords</p>
         </div>
         <div className="flex items-center gap-3">
           <Link
