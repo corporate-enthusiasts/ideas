@@ -71,3 +71,17 @@ export interface NotesFile {
 }
 
 export type SortOption = "score" | "newest" | "most_notes" | "status";
+
+export type FeedbackStatus = "pending" | "implemented";
+
+export interface FeedbackItem {
+  id: string;
+  author: string;
+  text: string;
+  date: string;
+  status: FeedbackStatus;
+}
+
+export interface FeedbackFile {
+  feedback: FeedbackItem[];
+}

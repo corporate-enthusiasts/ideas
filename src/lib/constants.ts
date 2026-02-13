@@ -1,4 +1,4 @@
-import type { Verdict, IdeaType, EffortLevel, IdeaStatus, NoteType } from "./types";
+import type { Verdict, IdeaType, EffortLevel, IdeaStatus, NoteType, FeedbackStatus } from "./types";
 
 export const TEAM_MEMBERS = ["ben", "troy", "nick", "andrew", "goose"] as const;
 
@@ -49,6 +49,11 @@ export const SCORE_LABELS: Record<string, string> = {
   team_fit: "Team Fit",
   side_project_viability: "Side Project",
   market_timing: "Market Timing",
+};
+
+export const FEEDBACK_STATUS_CONFIG: Record<FeedbackStatus, { emoji: string; color: string; bg: string }> = {
+  pending: { emoji: "🟡", color: "text-amber-400", bg: "bg-amber-400/10" },
+  implemented: { emoji: "✅", color: "text-emerald-400", bg: "bg-emerald-400/10" },
 };
 
 export const SCORE_WEIGHTS: Record<string, number> = {

@@ -86,12 +86,20 @@ export default function BoardPage() {
           </h1>
           <p className="mt-1 text-[15px] text-[var(--text-tertiary)]">Corporate Enthusiasts idea pipeline</p>
         </div>
-        <Link
-          href="/submit"
-          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)]"
-        >
-          + New Idea
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/feedback"
+            className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--border-focus)] hover:text-[var(--text-primary)]"
+          >
+            Feedback
+          </Link>
+          <Link
+            href="/submit"
+            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)]"
+          >
+            + New Idea
+          </Link>
+        </div>
       </div>
 
       {/* Filters */}
