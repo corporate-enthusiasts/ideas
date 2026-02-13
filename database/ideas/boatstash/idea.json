@@ -4,11 +4,15 @@
   "one_liner": "Photo-based parts inventory for cruisers",
   "submitter": "ben",
   "created": "2026-02-12",
-  "updated": "2026-02-12",
-  "status": "evaluated",
+  "updated": "2026-02-13",
+  "status": "re-evaluated",
   "type": "consumer_app",
   "effort_level": "solo",
-  "tags": ["boat", "offline-first", "ai-vision"],
+  "tags": [
+    "boat",
+    "offline-first",
+    "ai-vision"
+  ],
   "brief": {
     "problem": "Boat owners lose track of spare parts stored in 50+ compartments. LOB (Lost On Boat) is a known problem — cruisers coined an acronym for it.",
     "target_user": "Liveaboard cruisers and bluewater sailors with boats 30ft+",
@@ -17,19 +21,54 @@
     "initial_revenue_model": "Freemium - free for 1 boat/50 items, $4.99/mo for unlimited"
   },
   "scores": {
-    "ai_leverage": { "score": 4, "reasoning": "Core functionality is AI vision — identifying parts from photos, categorizing, and making them searchable. Strong AI moat." },
-    "competition": { "score": 4, "reasoning": "No direct competitor for boat-specific parts inventory. Generic apps like Sortly exist but are not boat-specific. Very low competition." },
-    "bootstrappability": { "score": 4, "reasoning": "Can launch with mobile app + cloud sync. Offline-first adds complexity but is technically feasible with existing frameworks." },
-    "revenue_clarity": { "score": 3, "reasoning": "Freemium model is clear. Cruisers will pay $150-300/year for self-reliance tools. Lifetime license ($49-99) may work better than subscription." },
-    "passive_potential": { "score": 4, "reasoning": "Once built, runs itself. AI handles cataloging, users self-serve. Minimal support needed." },
-    "team_fit": { "score": 5, "reasoning": "Ben moving to La Paz (huge boat community), dad has a boat, friends sailing around the world. Perfect distribution network." },
-    "side_project_viability": { "score": 4, "reasoning": "Can build MVP in spare time. Offline-first architecture is the main complexity but doable." },
-    "market_timing": { "score": 3, "reasoning": "Boat market is steady. AI vision tech is mature enough now. No specific urgency but no headwinds either." }
+    "competition": {
+      "score": 4,
+      "reasoning": "No direct boat-specific competitor exists. Generic inventory apps like Sortly aren't purpose-built for marine use cases and don't address the unique LOB problem cruisers face."
+    },
+    "team_fit": {
+      "score": 5,
+      "reasoning": "Perfect alignment: Ben moving to La Paz (major cruising hub), has boating family, friends actively cruising, and 10 pilot users already lined up. Distribution network is exceptional for this niche."
+    },
+    "bootstrappability": {
+      "score": 3,
+      "reasoning": "Mobile app with photo recognition is feasible, but offline-first requirement adds significant complexity. The concern about needing internet connectivity undermines the core use case and requires CRDT/sync architecture that's non-trivial."
+    },
+    "passive_potential": {
+      "score": 4,
+      "reasoning": "AI-powered cataloging means minimal manual work once launched. Cruisers are self-reliant by nature, reducing support burden, though some community management may be needed."
+    },
+    "side_project_viability": {
+      "score": 3,
+      "reasoning": "Offline-first mobile architecture with photo sync is complex for 4-8 hrs/week. Ben noted it would be 'hard to use without internet on the high seas' — this is a fundamental tension that needs resolution before building."
+    },
+    "ai_leverage": {
+      "score": 4,
+      "reasoning": "AI vision is core to identifying and cataloging boat parts from photos. Makes the product 10x better than manual spreadsheet tracking and creates a technical moat over generic solutions."
+    },
+    "revenue_clarity": {
+      "score": 4,
+      "reasoning": "Cruisers demonstrably pay $150-300/year for essential tools (nav apps, weather routing). Freemium to $4.99/mo or one-time $49-99 is reasonable. Evidence of willingness to pay exists in adjacent marine software."
+    },
+    "market_timing": {
+      "score": 3,
+      "reasoning": "Neither hot nor cold. AI vision is mature enough now, cruising community is stable. No catalyst driving urgency, but no headwinds either — just steady demand from a consistent niche."
+    }
   },
   "composite_score": 78,
   "verdict": "STRONG",
-  "summary": "BoatStash addresses the validated LOB (Lost On Boat) problem with a photo-first AI inventory system. Very low competition in boat-specific parts tracking, strong distribution through Bens sailing network, and liveaboard cruisers have proven willingness to pay $150-300/yr for self-reliance tools. Main technical challenge is offline-first architecture, but this is also the competitive moat.",
+  "summary": "BoatStash is a promising niche play with exceptional team-market fit. Ben's move to La Paz and existing pilot user pipeline (10 users ready to test) provides rare distribution access into a tight-knit community. The LOB problem is real and validated through forum research, and cruisers have demonstrated willingness to pay premium prices for reliability tools. The AI vision component creates defensibility that generic inventory apps can't match.\n\nHowever, there's a critical technical tension that must be resolved before building: the offshore use case demands offline-first architecture, but Ben flagged it would be 'hard to use without internet.' This isn't a nice-to-have feature — it's core to the value prop. Solving offline sync at side-project pace (4-8 hrs/week) is ambitious and could derail momentum. The complexity downgrade from previous 4/5 scores on bootstrappability and viability reflects this concern.\n\nRecommended next steps: (1) Validate with the 10 pilot users whether cloud-only (sync when back in marina) is acceptable or if true offline is required, (2) If offline is essential, timebox 2 weeks to prototype offline-first architecture with existing frameworks to assess feasibility, (3) If offline proves too complex, consider pivoting to marina-based use case first (always has WiFi) to launch faster and prove value before tackling bluewater offline challenges. The market fit is too good to pass up, but technical scope must match side-project constraints.",
   "evaluation_history": [
-    { "date": "2026-02-12", "score": 78, "verdict": "STRONG", "trigger": "initial" }
+    {
+      "date": "2026-02-12",
+      "score": 78,
+      "verdict": "STRONG",
+      "trigger": "initial"
+    },
+    {
+      "date": "2026-02-13",
+      "score": 78,
+      "verdict": "STRONG",
+      "trigger": "web-re-eval"
+    }
   ]
 }
