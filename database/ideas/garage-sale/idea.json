@@ -5,7 +5,7 @@
   "submitter": "ben",
   "created": "2026-02-13",
   "updated": "2026-02-13",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Crowded space with established players like PriceCharting, WorthPoint, and numerous niche vintage tech communities. Facebook Marketplace and eBay already have robust alert systems."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Team has technical chops to build scrapers and newsletters, but lacks unique edge in vintage tech/collectibles domain—no collector expertise, resale networks, or authentication capabilities that would differentiate."
+    },
+    "bootstrappability": {
+      "score": 4,
+      "reasoning": "Very cheap to launch—scraping scripts, basic frontend, and newsletter tool would cost under $100. Ben could build MVP in a weekend with AI assistance."
+    },
+    "passive_potential": {
+      "score": 3,
+      "reasoning": "Scrapers can run automatically, but requires ongoing maintenance as sites change layouts, dealing with blocks/captchas, and curating quality vs spam. Not fully set-and-forget."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Initial build is side-project friendly and maintenance could be contained to 4-8 hrs/week. Mostly automated workflows with occasional curation and bug fixes."
+    },
+    "ai_leverage": {
+      "score": 3,
+      "reasoning": "AI could help with categorization, price anomaly detection, and title normalization, but the core value is aggregation and alerts—not fundamentally AI-native."
+    },
+    "revenue_clarity": {
+      "score": 2,
+      "reasoning": "Willingness to pay is questionable—collectors already use free tools and alerts. Newsletter subscriptions for deal aggregation face low conversion rates. Ad revenue requires scale."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Y2K nostalgia is real but not spiking—it's been trending for 2-3 years already. No technological unlock or timing advantage; market is mature and stable."
     }
   },
-  "composite_score": 0,
+  "composite_score": 57,
   "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "summary": "This is a **PASS**. While technically easy to build and maintain at side-project pace, the idea faces fundamental issues: a crowded competitive landscape with free alternatives, unclear monetization in a price-sensitive collector audience, and no unique team advantage in the vintage tech domain. The team lacks collector networks, authentication expertise, or distribution channels that would differentiate this from existing solutions like PriceCharting, Facebook alerts, or Reddit communities. The market is stable but mature—Y2K nostalgia has been trending for years without creating obvious monetization opportunities for aggregators. Most concerning is revenue clarity: collectors are notoriously frugal and already have free tools; converting them to paid subscribers would be an uphill battle. Without a moat (no network effects, minimal data advantage over time, easy to replicate), this would likely become a feature someone else could copy rather than a defensible business. Recommended next step: **move on**. If the team is drawn to curation/discovery, explore domains where you have unique access, expertise, or distribution—such as cross-border deals (Ben's Mexico network), SMB tools (Andrew's agency relationships), or crypto collectibles (Troy's Coinbase context).",
+  "evaluation_history": [
+    {
+      "date": "2026-02-13",
+      "score": 57,
+      "verdict": "MEH",
+      "trigger": "web-eval"
+    }
+  ]
 }
