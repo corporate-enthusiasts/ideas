@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import useSWR from "swr";
 import Link from "next/link";
 import type { FeedbackItem, FeedbackStatus } from "@/lib/types";
-import { FEEDBACK_STATUS_CONFIG } from "@/lib/constants";
+import { FEEDBACK_STATUS_CONFIG, TEAM_MEMBERS } from "@/lib/constants";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
@@ -17,6 +17,29 @@ export default function FeedbackPage() {
 
   const [activeTab, setActiveTab] = useState<FeedbackStatus>("pending");
   const [togglingId, setTogglingId] = useState<string | null>(null);
+  const [author, setAuthor] = useState<string>(TEAM_MEMBERS[0]);
+  const [text, setText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!text.trim()) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text.trim(), author }),
+      });
+      if (res.ok) {
+        setText("");
+        setActiveTab("pending");
+        mutate();
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   const feedback = data?.feedback ?? [];
 
@@ -64,6 +87,35 @@ export default function FeedbackPage() {
         <p className="mt-1 text-[15px] text-[var(--text-tertiary)]">Bugs, feature requests, and UX issues</p>
       </div>
 
+      {/* Add feedback form */}
+      <form onSubmit={handleSubmit} className="mb-6 rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-5">
+        <div className="mb-3 flex items-center gap-3">
+          <select
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            className="cursor-pointer appearance-none rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-2 text-sm font-medium text-[var(--text-secondary)] focus:border-[var(--border-focus)] focus:outline-none"
+          >
+            {TEAM_MEMBERS.map((m) => (
+              <option key={m} value={m} className="capitalize">{m}</option>
+            ))}
+          </select>
+        </div>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Bug, feature request, UX issue..."
+          rows={3}
+          className="mb-3 w-full resize-none rounded-lg border border-[var(--border)] bg-[var(--bg-input)] px-3 py-2.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] focus:border-[var(--border-focus)] focus:outline-none"
+        />
+        <button
+          type="submit"
+          disabled={submitting || !text.trim()}
+          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-40"
+        >
+          {submitting ? "Sending..." : "Add Feedback"}
+        </button>
+      </form>
+
       {/* Tab bar */}
       <div className="mb-6 flex gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-input)] p-1">
         {tabs.map((tab) => (
@@ -108,7 +160,7 @@ export default function FeedbackPage() {
         <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-12 text-center">
           <p className="text-sm text-[var(--text-tertiary)]">
             {feedback.length === 0
-              ? "No feedback yet. Use the chat button to submit some."
+              ? "No feedback yet. Add some above."
               : `No ${activeTab} feedback.`}
           </p>
         </div>
