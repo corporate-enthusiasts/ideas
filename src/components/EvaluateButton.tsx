@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { IdeaStatus } from "@/lib/types";
 
 interface EvaluateButtonProps {
@@ -8,15 +8,24 @@ interface EvaluateButtonProps {
   status: IdeaStatus;
   currentScore: number;
   onEvaluated: () => void;
+  autoEvaluate?: boolean;
 }
 
-export default function EvaluateButton({ slug, status, currentScore, onEvaluated }: EvaluateButtonProps) {
+export default function EvaluateButton({ slug, status, currentScore, onEvaluated, autoEvaluate }: EvaluateButtonProps) {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [delta, setDelta] = useState<number | null>(null);
   const [errorMsg, setErrorMsg] = useState("");
+  const autoFiredRef = useRef(false);
 
   const isDraft = status === "draft";
   const label = isDraft ? "Evaluate" : "Re-evaluate";
+
+  useEffect(() => {
+    if (autoEvaluate && isDraft && !autoFiredRef.current) {
+      autoFiredRef.current = true;
+      handleClick();
+    }
+  }, [autoEvaluate]);
 
   async function handleClick() {
     setState("loading");

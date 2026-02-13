@@ -25,7 +25,7 @@ export default function ScoreBar({ label, scoreKey, score, reasoning }: ScoreBar
         <div className="flex items-center gap-2">
           <span className="font-medium text-[var(--text-primary)]">{label}</span>
           {weight && weight !== 1 && (
-            <span className="rounded bg-[var(--bg-surface-raised)] px-1.5 py-0.5 text-[9px] font-semibold text-[var(--text-tertiary)]">
+            <span className="rounded bg-[var(--bg-surface-raised)] px-1.5 py-0.5 text-[11px] font-semibold text-[var(--text-tertiary)]">
               {weight}x
             </span>
           )}

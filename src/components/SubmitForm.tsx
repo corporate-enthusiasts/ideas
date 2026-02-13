@@ -36,7 +36,7 @@ export default function SubmitForm() {
 
       if (res.ok) {
         const data = await res.json();
-        router.push(`/ideas/${data.id}`);
+        router.push(`/ideas/${data.id}?autoEvaluate=true`);
       } else {
         const data = await res.json();
         setError(data.error || "Failed to submit");

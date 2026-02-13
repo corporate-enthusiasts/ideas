@@ -80,7 +80,7 @@ export default function FilterBar(props: FilterBarProps) {
 
       <div className="ml-auto flex items-center gap-3">
         {props.totalCount > 0 && (
-          <span className="text-[11px] text-[var(--text-tertiary)]">
+          <span className="text-xs text-[var(--text-tertiary)]">
             {props.filteredCount === props.totalCount
               ? `${props.totalCount} ideas`
               : `${props.filteredCount} of ${props.totalCount}`}

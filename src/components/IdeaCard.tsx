@@ -59,7 +59,7 @@ export default function IdeaCard({ idea, index }: IdeaCardProps) {
                 {EFFORT_LABELS[idea.effort_level] ?? idea.effort_level}
               </span>
             </div>
-            <div className="flex items-center gap-3 text-[11px] text-[var(--text-tertiary)]">
+            <div className="flex items-center gap-3 text-xs text-[var(--text-tertiary)]">
               <span>{idea.submitter}</span>
               <span>{idea.created}</span>
               {idea._noteCount > 0 && (

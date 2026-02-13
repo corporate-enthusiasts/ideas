@@ -2,6 +2,7 @@
 
 import { use, useState } from "react";
 import useSWR from "swr";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import VerdictBadge from "@/components/VerdictBadge";
 import ScoreBar from "@/components/ScoreBar";
@@ -34,7 +35,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export default function IdeaDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const { data, error, isLoading, mutate } = useSWR<DetailData>(`/api/ideas/${slug}`, fetcher);
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const autoEvaluate = searchParams.get("autoEvaluate") === "true";
 
   if (isLoading) {
     return (
@@ -96,7 +100,13 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
               slug={slug}
               status={idea.status}
               currentScore={idea.composite_score}
-              onEvaluated={mutate}
+              autoEvaluate={autoEvaluate}
+              onEvaluated={() => {
+                mutate();
+                if (autoEvaluate) {
+                  router.replace(`/ideas/${slug}`, { scroll: false });
+                }
+              }}
             />
           </div>
         </div>
@@ -106,7 +116,7 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         {/* Tags */}
         <Section title="Details">
           <TagEditor idea={idea} onUpdated={mutate} />
-          <div className="mt-3 flex flex-wrap gap-4 text-[13px] text-[var(--text-tertiary)]">
+          <div className="mt-3 flex flex-wrap gap-4 text-sm text-[var(--text-tertiary)]">
             <span>Submitter: <span className="text-[var(--text-primary)]">{idea.submitter}</span></span>
             <span>Created: <span className="text-[var(--text-primary)]">{idea.created}</span></span>
             {idea.updated !== idea.created && (
@@ -129,7 +139,7 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
                 />
               ))}
             </div>
-            <p className="mt-3 text-[11px] text-[var(--text-tertiary)]">Hover any score to see reasoning</p>
+            <p className="mt-3 text-xs text-[var(--text-tertiary)]">Hover any score to see reasoning</p>
           </Section>
         )}
 
@@ -169,7 +179,7 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         <Section title={`Notes (${notes.length})`}>
           <NotesList notes={notes} />
           <div className="mt-4 border-t border-[var(--border-subtle)] pt-4">
-            <p className="mb-3 text-[11px] font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Add Note</p>
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Add Note</p>
             <AddNoteForm slug={slug} onNoteAdded={mutate} />
           </div>
         </Section>

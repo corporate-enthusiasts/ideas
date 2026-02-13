@@ -11,7 +11,7 @@ export default function SubmitPage() {
 
       <div className="mb-6 animate-card-in">
         <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)]">New Idea</h1>
-        <p className="mt-1.5 text-sm text-[var(--text-tertiary)]">Log an idea as a draft. Run <code className="rounded bg-[var(--bg-surface-raised)] px-1.5 py-0.5 text-[var(--accent)]">/validate-idea</code> in Claude Code to score it.</p>
+        <p className="mt-1.5 text-sm text-[var(--text-tertiary)]">Your idea will be automatically evaluated after submission.</p>
       </div>
 
       <div className="animate-card-in stagger-2 rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] p-6">
