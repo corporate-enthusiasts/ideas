@@ -13,6 +13,13 @@
       "date": "2026-02-12",
       "text": "Offline-first sync is harder than it looks — need to research CRDTs or simpler alternatives.",
       "type": "concern"
+    },
+    {
+      "id": "note_1771017755",
+      "author": "ben",
+      "date": "2026-02-13",
+      "text": "Have 10 users who want to try this out and will pilot it for us.",
+      "type": "validation"
     }
   ]
 }
