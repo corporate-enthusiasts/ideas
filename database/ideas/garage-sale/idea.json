@@ -1,0 +1,57 @@
+{
+  "id": "garage-sale",
+  "name": "Garage Sale",
+  "one_liner": "Find good deals on rare/nostalgic goods from resale sites",
+  "submitter": "ben",
+  "created": "2026-02-13",
+  "updated": "2026-02-13",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "Description:\n  - Problem: Finding rare Y2K nostalgia items (iPods, Game Boys, flip phones) across Craigslist and other resale platforms is\n  tedious and time-consuming\n  - Target user: Collectors and nostalgia enthusiasts looking for deals on vintage tech and toys\n  - Solution: Scrape resale sites, curate the best deals, and distribute via newsletter or searchable database\n  - Revenue model: Newsletter subscription (curated deals), alerts for specific items, or ad-supported search",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
