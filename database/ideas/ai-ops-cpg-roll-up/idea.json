@@ -5,7 +5,7 @@
   "submitter": "nick",
   "created": "2026-02-18",
   "updated": "2026-02-18",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Traditional aggregators and PE shops exist (Thrasio, Branded, Heyday), but most focus on scale over operational tooling. Room for differentiation via AI ops, but capital-intensive model attracts competition."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Nick brings CPG operations, supply chain, and M&A expertise; Andrew has deep SMB/brand insight and paid media chops; Ben and Troy can build the AI ops infrastructure. Strong collective fit for identifying, acquiring, and optimizing brands."
+    },
+    "bootstrappability": {
+      "score": 1,
+      "reasoning": "Requires significant capital to acquire even one small brand ($100K–$500K+), plus inventory financing and working capital. Cannot bootstrap without external funding or personal capital deployment."
+    },
+    "passive_potential": {
+      "score": 2,
+      "reasoning": "Running physical product brands demands constant attention: inventory management, supplier issues, customer service, and marketing. Even with AI ops, brands require active oversight and decision-making."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 1,
+      "reasoning": "Operating acquired CPG brands is a full-time commitment that cannot be managed at 4-8 hours/week. Inventory, cash flow, and supplier management require rapid response times incompatible with side-project constraints."
+    },
+    "ai_leverage": {
+      "score": 4,
+      "reasoning": "AI ops layer is core to the value creation thesis—forecasting, marketing automation, reporting, and CX can all meaningfully leverage LLMs and automation. Provides 10x improvement over manual spreadsheets and siloed tools."
+    },
+    "revenue_clarity": {
+      "score": 4,
+      "reasoning": "Revenue model is clear: acquire cash-flowing brands, improve EBITDA through operational efficiency, and either hold for cash flow or exit at higher multiple. Validated by aggregator exits and PE activity in the space."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "CPG aggregator hype has cooled after Thrasio's struggles, creating potential buying opportunities at lower multiples. However, macro headwinds (inventory costs, consumer spending) and rising interest rates make financing harder."
     }
   },
-  "composite_score": 0,
+  "composite_score": 56,
   "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "summary": "This is a PASS for a side project team, despite strong strategic merit. The fundamental issue is structural: acquiring and operating physical product brands requires significant upfront capital (impossible to bootstrap), full-time operational attention (inventory, suppliers, cash flow), and ongoing active management that cannot be squeezed into 4-8 hours per week across five people with day jobs. The team fit is excellent—Nick's CPG and M&A background, Andrew's brand/marketing expertise, and Ben/Troy's AI ops capabilities create a compelling operator profile—but this is a full-time venture or fund, not a side project. The AI ops thesis is sound and defensible (data moat strengthens with each acquisition), and the market timing is neutral with potential upside from depressed valuations, but execution demands are incompatible with your constraints. If the team is serious about this space, the path forward is either (1) building and selling the AI ops platform as standalone SaaS to existing CPG operators/aggregators, or (2) treating this as a future full-time venture once one or more team members can commit. As currently scoped, the idea scores 32/100—strategically interesting but operationally impossible given your side-project framework.",
+  "evaluation_history": [
+    {
+      "date": "2026-02-18",
+      "score": 56,
+      "verdict": "MEH",
+      "trigger": "web-eval"
+    }
+  ]
 }
