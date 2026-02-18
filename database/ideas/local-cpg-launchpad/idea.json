@@ -5,7 +5,7 @@
   "submitter": "nick",
   "created": "2026-02-18",
   "updated": "2026-02-18",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Fragmented competition—legal/compliance SaaS exists (LegalZoom, Harbor Compliance), consulting exists, but no integrated AI-first platform for end-to-end CPG launch. Room for differentiation but not a blue ocean."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Nick brings deep CPG operations, supply chain, and product launch experience. Andrew has SMB insight and brand/marketing chops. Ben can build the AI agent platform. Strong domain-product fit."
+    },
+    "bootstrappability": {
+      "score": 3,
+      "reasoning": "Can build a lean MVP with AI agents and workflow automation, but needs domain research (regulatory data, vendor databases, compliance templates) and content creation upfront. Likely $500-2K and 4-8 weeks to ship something useful."
+    },
+    "passive_potential": {
+      "score": 2,
+      "reasoning": "Platform requires ongoing content updates (regulations change, vendor lists go stale, compliance rules vary by state/locale). Customer support will be high-touch—users need hand-holding through complex processes."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Building the initial agent workflows is doable at side-project pace, but maintaining regulatory accuracy, curating vendor databases, and supporting users through compliance is resource-intensive and risky at 4-8 hrs/week."
+    },
+    "ai_leverage": {
+      "score": 4,
+      "reasoning": "AI agents are core to the value prop—automating research, compliance checklists, vendor outreach, cost modeling, and launch planning. This would be prohibitively manual without AI."
+    },
+    "revenue_clarity": {
+      "score": 4,
+      "reasoning": "Clear B2C SaaS subscription model with upsell opportunities (done-with-you services, vendor intros, compliance reviews). Target users (aspiring CPG founders) have demonstrated willingness to pay for speed and de-risking."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Craft/local CPG is stable-to-growing (spirits, coffee, sauces), and AI tooling enables this now. No urgent catalyst, but creator economy and side-hustle trends are tailwinds."
     }
   },
-  "composite_score": 0,
-  "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "composite_score": 67,
+  "verdict": "PROMISING",
+  "summary": "This is a PROMISING idea with clear strengths but meaningful execution risks. The team has exceptional fit—Nick's CPG operations and supply chain background, Andrew's SMB/brand expertise, and Ben's ability to build AI agent platforms make this one of the strongest team-idea matches in the portfolio. The product vision is compelling: turning a fragmented, intimidating process into a guided, AI-powered workflow that saves aspiring founders months of research and costly missteps. Revenue model is solid, and AI leverage is real—this would be nearly impossible to build without LLMs. The core concern is passive potential and side-project viability. Regulatory compliance is high-stakes (errors = legal liability), data goes stale quickly (permits, vendors, rules change), and users will need significant hand-holding. Maintaining accuracy and trust at 4-8 hrs/week per person is a major risk. This could easily become a high-touch consulting business disguised as software. Recommended next steps: (1) validate demand with a no-code concierge MVP—manually guide 3-5 founders through spirits launch and see if they'd pay $500-2K for the service, (2) assess regulatory data maintenance burden (can you automate updates or partner with compliance providers?), and (3) explore a narrower wedge (one state, one category) to reduce scope and test if the workflows can truly be passive. If you can prove the concept works with minimal ongoing effort, this could scale. If not, pivot to a premium done-with-you service or pass.",
+  "evaluation_history": [
+    {
+      "date": "2026-02-18",
+      "score": 67,
+      "verdict": "PROMISING",
+      "trigger": "web-eval"
+    }
+  ]
 }
