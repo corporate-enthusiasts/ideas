@@ -1,0 +1,57 @@
+{
+  "id": "ai-ops-cpg-roll-up",
+  "name": "AI Ops CPG Roll-Up",
+  "one_liner": "Acquire under-optimized CPG brands and boost profitability by installing a repeatable AI-powered operating system for inventory, marketing, CX, and reporting.",
+  "submitter": "nick",
+  "created": "2026-02-18",
+  "updated": "2026-02-18",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "Most small CPG brands don’t fail because the product is bad—they stall because operations are chaotic: inconsistent forecasting, stockouts, bloated spend, slow reporting, and manual workflows. This idea is to buy “good product / bad ops” brands (Amazon-native or DTC) and apply a standardized AI ops layer that quickly improves visibility, predictability, and scalability.\n\nCore AI ops modules:\n\t•\tSingle source of truth: unify sales, ads, inventory, and finance into one dashboard with automated weekly reporting.\n\t•\tDemand + inventory forecasting: reorder points, cash planning, and stockout prevention (improve fill rates, reduce dead inventory).\n\t•\tMarketing ops automation: creative testing loops, budget pacing, attribution sanity checks, and margin-aware scaling.\n\t•\tCustomer support + voice of customer: automated triage, review mining, and product/positioning insights.\n\t•\tPlaybooks + integrations: templates, SOPs, and tooling that can be deployed in weeks—not months.\n\nWho it’s for: operators/investors acquiring $1–10M revenue CPG brands that have real demand but are inefficient. The differentiation is compounding: every acquisition strengthens the shared platform (data, workflows, vendor playbooks), making future turnarounds faster and cheaper.",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
