@@ -1,0 +1,121 @@
+{
+  "id": "camphost",
+  "name": "CampHost",
+  "one_liner": "AI guest communication for campgrounds and RV parks — auto-answers the same 20 questions",
+  "submitter": "nick",
+  "created": "2026-02-18",
+  "updated": "2026-02-18",
+  "status": "evaluated",
+  "type": "smb_saas",
+  "effort_level": "pair",
+  "tags": ["campground", "rv-park", "guest-communication", "nick-lead", "outdoor-recreation"],
+  "brief": {
+    "problem": "Small campgrounds and RV parks get hammered with the same 20 questions — check-in time, pet policy, firewood availability, WiFi password, local recommendations. Operators spend hours per day on repetitive guest messaging across email, text, and booking platforms.",
+    "target_user": "Independent campground and RV park operators with 20-200 sites, especially mom-and-pop operations without dedicated front desk staff",
+    "proposed_solution": "AI handles guest messaging across email/text/booking platforms — pre-arrival info, check-in instructions, local recommendations, FAQ answers, and post-stay review requests. Configured once with campground-specific info, then runs automatically.",
+    "value_prop": "Stop answering the same 20 questions — AI handles guest communication so you can focus on running the park",
+    "initial_revenue_model": "SaaS subscription $39-69/mo per campground"
+  },
+  "scores": {
+    "competition": { "score": 3, "reasoning": "CampVantage by Insider Perks exists at $99/mo but is early-stage. RoverPass added AI via Zapier. Legacy campground software (Campspot, RMS) doesn't have AI communication. Niche is nascent, not empty." },
+    "team_fit": { "score": 4, "reasoning": "Nick has direct campground industry contacts providing warm distribution. Andrew's SMB/agency experience applies to onboarding. Ben builds the AI stack. Loses a point because nobody on the team has operated a campground." },
+    "bootstrappability": { "score": 5, "reasoning": "Standard web app with LLM + messaging APIs. Under $100 to launch MVP. No special infrastructure, no hardware, no regulatory requirements." },
+    "passive_potential": { "score": 4, "reasoning": "Once configured with campground policies and info, AI runs automatically. Seasonal churn risk (operators may cancel off-season). Occasional prompt tuning needed." },
+    "side_project_viability": { "score": 4, "reasoning": "MVP is a weekend build. Ongoing maintenance is light. Customer acquisition through Nick's contacts fits side-project pace. Only concern is onboarding — campground operators are low-tech." },
+    "ai_leverage": { "score": 4, "reasoning": "AI is core — natural language understanding for varied guest questions, personalized responses, multi-channel handling. Would be impossible to automate without LLMs. Not just a wrapper." },
+    "revenue_clarity": { "score": 4, "reasoning": "CampVantage validates willingness to pay at $99/mo. CampHost undercuts at $39-69/mo for price-sensitive mom-and-pop segment. Campground operators already pay for reservation software ($50-200/mo)." },
+    "market_timing": { "score": 4, "reasoning": "Post-COVID outdoor recreation boom sustained — 32.8% participation increase, $61B spending. Younger, digitally-native campers expect faster communication. AI just became good enough for this." }
+  },
+  "composite_score": 79,
+  "verdict": "STRONG",
+  "workshop": {
+    "sharpened_problem": "Campground operators are often 1-2 person operations managing 50-200 sites. During peak season they spend 2-4 hours daily answering the same questions via email, phone, and booking platform messages. This is time they could spend on maintenance, guest experience, or simply not burning out. The real pain isn't just time — it's that slow responses lead to lost bookings and bad reviews.",
+    "key_assumptions": [
+      "Campground operators will trust AI to communicate with guests on their behalf",
+      "Nick's campground contacts represent a viable warm distribution channel (not just casual acquaintances)",
+      "The $39-69/mo price point is compelling enough vs. CampVantage at $99/mo to win on price"
+    ],
+    "variations": [
+      { "name": "Review Request Engine", "description": "Focus narrowly on post-stay automated review requests and review response management rather than full guest communication. Simpler product, clearer ROI.", "tradeoff": "Easier to build and prove value (reviews = direct revenue impact) but smaller TAM and less sticky than full communication suite." },
+      { "name": "Campground CRM", "description": "Expand beyond messaging to include guest profiles, return visitor tracking, seasonal promotions, and loyalty features.", "tradeoff": "Much bigger product and stickier, but significantly more complex to build and compete with established campground management software." }
+    ],
+    "revenue_models": [
+      { "model": "SaaS Subscription", "how_it_works": "Monthly fee per campground for AI guest messaging across all channels", "price_range": "$39-69/mo" },
+      { "model": "Usage-Based + Base", "how_it_works": "$19/mo base + $0.10 per AI-handled conversation", "price_range": "$19-100/mo depending on volume" }
+    ],
+    "biggest_risk": "Technology adoption barrier — campground operators are notoriously low-tech. Getting them to trust AI with guest communication and to set up the tool may require hands-on onboarding that doesn't scale at side-project pace.",
+    "unfair_advantage_needed": "Nick's direct relationships with campground operators provide trust-based distribution. If those contacts are genuine warm leads (not just LinkedIn connections), this bypasses the biggest barrier in SMB SaaS: getting the first 10 customers."
+  },
+  "market_research": {
+    "competitors": [
+      { "name": "CampVantage (Insider Perks)", "url": "https://insiderperks.com/campvantage/", "model": "SaaS $99/mo", "strengths": "First mover in AI campground communication, established in outdoor hospitality", "weaknesses": "Higher price point, early-stage product, limited features", "funding": "Bootstrapped" },
+      { "name": "RoverPass", "url": "https://roverpass.com", "model": "SaaS + booking fees", "strengths": "Established reservation platform with Zapier AI integration", "weaknesses": "AI is bolt-on via Zapier, not native. Primary focus is reservations, not communication.", "funding": "Seed" },
+      { "name": "Campspot / RMS / Newbook", "url": "various", "model": "SaaS $100-500/mo", "strengths": "Full campground management suites with established user bases", "weaknesses": "No AI communication features. Legacy software, slow to innovate.", "funding": "Various" },
+      { "name": "Generic chatbots (Tidio, Intercom)", "url": "various", "model": "SaaS $20-100/mo", "strengths": "General-purpose chat tools that could handle FAQs", "weaknesses": "Not campground-specific, require significant configuration, don't handle email/text/booking platform messages", "funding": "Various" }
+    ],
+    "market_size": {
+      "tam": "~27,000 campgrounds and RV parks in the US",
+      "sam": "~15,000 independent/small chain parks (excluding KOA, Jellystone, etc. who have corporate tools)",
+      "target_niche": "Mom-and-pop campgrounds with 20-200 sites, no dedicated front desk — estimated 8,000-10,000 parks"
+    },
+    "trends": {
+      "direction": "growing",
+      "evidence": "Outdoor recreation participation up 32.8% post-COVID, $61B in camping spending. Younger demographics (millennials, Gen Z) entering camping expect digital-first communication.",
+      "tailwinds": ["Sustained post-COVID outdoor recreation boom", "Younger campers expect instant digital responses", "AI maturity enabling natural guest conversations"],
+      "headwinds": ["Campground operators are slow to adopt new tech", "Seasonal business means seasonal churn risk"]
+    },
+    "distribution_channels": [
+      { "channel": "Nick's campground contacts", "effort": "low", "fit": "Direct warm introductions to park operators" },
+      { "channel": "Campground industry trade shows/associations", "effort": "medium", "fit": "ARVC, state campground associations — concentrated audience" },
+      { "channel": "Campground management Facebook groups", "effort": "low", "fit": "Active communities where operators share tools and recommendations" }
+    ],
+    "moat_potential": {
+      "type": "switching_costs",
+      "explanation": "Once configured with campground-specific policies, FAQ answers, and communication templates, switching cost is moderate. Data accumulation (guest interaction patterns, common questions by season) creates an improving product over time.",
+      "time_to_moat": "6-12 months of usage data across multiple campgrounds"
+    },
+    "top_competitor": "CampVantage (Insider Perks)"
+  },
+  "feasibility": {
+    "tech_sketch": {
+      "summary": "Web app with LLM backend for response generation. Integrates with email (IMAP/SMTP or SendGrid), SMS (Twilio), and booking platform APIs where available. Campground operator configures policies/info once, AI handles incoming messages.",
+      "key_integrations": ["Anthropic/OpenAI API", "Twilio (SMS)", "Email APIs", "Booking platform APIs (if available)"],
+      "hard_technical_problems": "None. Standard messaging + LLM pipeline. Booking platform integrations may be limited by API availability but email/SMS covers 80% of use case."
+    },
+    "complexity": { "level": "low", "reasoning": "Standard web app with messaging integrations. Well-understood architecture. No offline requirements, no real-time processing, no complex data models." },
+    "side_project_feasible": { "verdict": "yes", "explanation": "MVP can ship in 1-2 weekends focusing on email + SMS. Ongoing maintenance is light once configured. Nick handles sales through existing relationships. Main risk is onboarding time for low-tech operators." },
+    "real_blockers": [
+      { "blocker": "Technology adoption — campground operators may resist AI handling guest communication", "severity": "medium", "workaround": "Position as 'draft and approve' rather than fully autonomous initially. Let operators review AI responses before sending." },
+      { "blocker": "Seasonal churn — operators may cancel during off-season (Nov-Mar)", "severity": "medium", "workaround": "Annual pricing with discount ($399/year vs $69/mo = 2 months free) to lock in year-round." }
+    ],
+    "cost_to_operate": { "monthly_estimate": "$30-80/month at 50 campgrounds", "breakdown": "LLM API calls (~$0.02-0.05 per conversation), Twilio SMS ($0.01 per message), hosting ($15-30)" },
+    "key_risks": [
+      { "risk": "Nick's campground contacts may be casual rather than warm sales leads", "mitigation": "Validate with 5 direct outreach calls before building anything", "severity": "medium" },
+      { "risk": "Campground management platforms add native AI communication features", "mitigation": "Move fast, build switching costs, focus on the mom-and-pop segment that doesn't use big platforms", "severity": "medium" }
+    ]
+  },
+  "monetization": {
+    "primary_model": {
+      "name": "SaaS Subscription",
+      "how_it_works": "Monthly subscription per campground for AI guest communication. Handles email, SMS, and booking platform messages. Configured once with campground-specific info.",
+      "pricing": "$39/mo (basic — email + SMS, 200 conversations), $69/mo (pro — unlimited conversations + review requests + analytics)",
+      "free_tier": "14-day free trial with full features"
+    },
+    "unit_economics": {
+      "at_100_users": { "monthly_revenue": "$5,400", "monthly_costs": "$150", "margin": "97%", "assumptions": "100 campgrounds at avg $54/mo, hosting + API costs minimal" },
+      "at_500_users": { "monthly_revenue": "$27,000", "monthly_costs": "$500", "margin": "98%", "assumptions": "500 campgrounds, may need part-time support" },
+      "at_1000_users": { "monthly_revenue": "$54,000", "monthly_costs": "$1,200", "margin": "98%", "assumptions": "1000 campgrounds, need dedicated support person" }
+    },
+    "time_to_first_dollar": { "estimate": "4-8 weeks after launch", "how": "Nick pitches 5-10 campground contacts, offers discounted pilot. If 2-3 convert at $39/mo, that's first revenue within 2 months." },
+    "alternative_models": [
+      { "model": "Annual Subscription", "pros": "Reduces seasonal churn, better cash flow predictability", "cons": "Harder initial sell for risk-averse operators" },
+      { "model": "Per-Conversation Pricing", "pros": "Low barrier to entry, pay-for-what-you-use appeals to seasonal businesses", "cons": "Unpredictable revenue, may not cover fixed costs during off-season" }
+    ],
+    "pricing_psychology": "Campground operators think in terms of per-night revenue ($30-80/night). Frame CampHost as 'costs less than one campsite-night per month' — if AI saves even one lost booking from a slow response, it pays for itself.",
+    "revenue_ceiling": { "realistic_monthly": "$25,000-50,000 at steady state with side-project effort", "reasoning": "500-1000 campgrounds at $39-69/mo is achievable through industry channels over 12-18 months. Ceiling rises with add-on features (review management, booking optimization)." }
+  },
+  "summary": "CampHost is a STRONG idea that hits the sweet spot for the BotBoys team. It targets a specific, underserved niche (small campgrounds and RV parks) where technology adoption is low, competition is nascent, and the problem is real and repetitive. Nick's direct campground contacts provide a rare warm distribution channel that eliminates the typical SMB SaaS cold-start problem. The product is cheap to build, cheap to run, and largely passive once configured.\n\nTop 3 Strengths: (1) Nick's direct access to campground operators provides warm distribution in a niche that is hard to reach through traditional marketing. (2) Extremely cheap to build and operate — near-zero infrastructure costs with 96%+ gross margins. (3) Low competition in a specific niche where the incumbent (CampVantage) is early-stage and priced higher.\n\nTop 3 Concerns: (1) Technology adoption barrier — campground operators are notoriously low-tech and may resist AI guest communication. (2) Seasonal churn risk — campgrounds peak May-October, operators may cancel during off-season. (3) Revenue ceiling is lifestyle-business scale (~$600K-1.2M ARR at realistic penetration), not venture-scale.\n\nRecommended next steps: (1) Nick reaches out to 5-10 campground contacts for discovery calls. (2) Ben builds minimal MVP (email/text auto-responder) in 1-2 weekends. (3) Pilot with 2-3 of Nick's contacts free for 30 days before peak season (April). (4) Andrew designs dead-simple onboarding flow. (5) If pilot validates, launch paid product by May 2026.\n\nWho should lead: Nick Ost.",
+  "evaluation_history": [
+    { "date": "2026-02-18", "score": 79, "verdict": "STRONG", "trigger": "initial" }
+  ]
+}

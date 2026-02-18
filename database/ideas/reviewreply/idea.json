@@ -1,0 +1,121 @@
+{
+  "id": "reviewreply",
+  "name": "ReviewReply",
+  "one_liner": "AI-drafted review responses for local businesses — approve and post in one tap",
+  "submitter": "ben",
+  "created": "2026-02-18",
+  "updated": "2026-02-18",
+  "status": "evaluated",
+  "type": "smb_saas",
+  "effort_level": "solo",
+  "tags": ["smb", "reviews", "google-business", "andrew-lead", "brandpulse-adjacent"],
+  "brief": {
+    "problem": "Local businesses get Google and Yelp reviews but most go unanswered because owners are busy. Unanswered reviews hurt reputation and SEO rankings. Writing thoughtful, personalized responses takes 5-10 minutes per review.",
+    "target_user": "Local SMBs — restaurants, salons, dentists, auto shops — especially those managed by digital marketing agencies",
+    "proposed_solution": "Monitor Google Business Profile for new reviews, AI drafts a tone-matched personalized response, business owner gets a notification and approves with one tap. Done in seconds instead of minutes.",
+    "value_prop": "Never leave a review unanswered — AI drafts perfect responses so you just tap approve",
+    "initial_revenue_model": "SaaS subscription $19-29/mo per business location"
+  },
+  "scores": {
+    "competition": { "score": 2, "reasoning": "Red ocean. Resolva ($19-49/mo), Reviewly.ai ($99/mo), Birdeye ($299+), Podium ($299+), GoHighLevel, free Chrome extensions, ChatGPT. Gap only at ultra-low-end SMB." },
+    "team_fit": { "score": 5, "reasoning": "Andrew has 40+ agency clients, can validate in 5 calls. Ben builds the stack. Nick handles GTM. Team sits on top of the distribution channel." },
+    "bootstrappability": { "score": 5, "reasoning": "MVP under $50. Free Google Business Profile API, pennies per LLM call, Chrome extension needs zero infrastructure." },
+    "passive_potential": { "score": 4, "reasoning": "Auto-monitors and drafts once configured. Loses a point for onboarding friction and constant SMB churn management." },
+    "side_project_viability": { "score": 5, "reasoning": "1-2 weekend MVP. Straightforward monitoring + LLM + notification pipeline. 4-8 hrs/week is plenty." },
+    "ai_leverage": { "score": 4, "reasoning": "AI is core (can't do it without LLMs at scale) but shallow (single prompt per review). Every competitor also uses LLMs." },
+    "revenue_clarity": { "score": 4, "reasoning": "Resolva has paying customers at same price point. Andrew's agency clients already pay for marketing services. Volume needed at $19-29/mo." },
+    "market_timing": { "score": 3, "reasoning": "Window closing. AI responses are becoming a commodity feature baked into every platform. The moment was 2023-2024." }
+  },
+  "composite_score": 81,
+  "verdict": "STRONG",
+  "workshop": {
+    "sharpened_problem": "Local business owners know unanswered reviews hurt them but responding is tedious, especially to negative reviews where tone matters. Marketing agencies manage this for clients but it's manual drudgery that doesn't scale.",
+    "key_assumptions": [
+      "SMBs will pay $19-29/mo for review response automation rather than using free ChatGPT",
+      "Google Business Profile API access remains free and stable for monitoring",
+      "Andrew's agency clients represent a scalable distribution channel beyond his personal portfolio"
+    ],
+    "variations": [
+      { "name": "BrandPulse Add-On", "description": "Position as a feature of BrandPulse rather than standalone product. Review responses become the entry wedge for the full brand monitoring suite.", "tradeoff": "Lower standalone revenue but higher LTV through upsell. Loses independent brand identity but gains BrandPulse's existing customer base." },
+      { "name": "Agency White-Label", "description": "White-label tool that agencies resell to their clients under their own brand. Andrew's agency and similar shops are the customer, not the end SMB.", "tradeoff": "Higher deal sizes ($200-500/mo per agency) but longer sales cycle and need for agency-specific features (multi-client dashboard, reporting)." }
+    ],
+    "revenue_models": [
+      { "model": "Direct SaaS", "how_it_works": "SMBs pay $19-29/mo per location for AI review monitoring and response drafting", "price_range": "$19-29/mo" },
+      { "model": "Agency White-Label", "how_it_works": "Agencies pay $99-199/mo for multi-client dashboard, resell to clients at markup", "price_range": "$99-199/mo per agency" }
+    ],
+    "biggest_risk": "Review responses are becoming a commodity feature — Google itself could add native AI responses to Business Profile, making standalone tools obsolete overnight.",
+    "unfair_advantage_needed": "Andrew's 40+ agency client relationships provide zero-CAC distribution that no competitor can replicate. The play is speed: capture the agency channel before platforms commoditize the feature."
+  },
+  "market_research": {
+    "competitors": [
+      { "name": "Resolva", "url": "https://tryresolva.com", "model": "SaaS $19-49/mo", "strengths": "Same price point and value prop, already in market", "weaknesses": "Small startup, limited agency features", "funding": "unknown" },
+      { "name": "Reviewly.ai", "url": "https://reviewly.ai", "model": "SaaS $99/mo", "strengths": "Established with paying customers", "weaknesses": "Higher price point, less accessible for small SMBs", "funding": "unknown" },
+      { "name": "Birdeye", "url": "https://birdeye.com", "model": "SaaS $299+/mo", "strengths": "Full reputation suite, enterprise features", "weaknesses": "Expensive, overkill for small businesses", "funding": "Series C" },
+      { "name": "ChatGPT / manual", "url": "n/a", "model": "Free", "strengths": "Zero cost, business owners already know how to use it", "weaknesses": "Manual workflow, no monitoring, no notification, no one-tap approve", "funding": "n/a" }
+    ],
+    "market_size": {
+      "tam": "33M+ businesses in the US with Google Business Profiles",
+      "sam": "~5M actively managed SMBs that care about review responses",
+      "target_niche": "Agency-managed SMBs (Andrew's channel) — ~500K businesses managed by small-mid agencies"
+    },
+    "trends": {
+      "direction": "growing",
+      "evidence": "Google increasingly weights review responses in local SEO. More businesses understand reputation management matters.",
+      "tailwinds": ["AI making review responses higher quality and faster", "Google SEO rewards for active review management", "SMB digital marketing spend growing"],
+      "headwinds": ["Feature commoditization — every platform adding AI responses", "Google may add native AI response feature"]
+    },
+    "distribution_channels": [
+      { "channel": "Andrew's agency clients", "effort": "low", "fit": "Direct warm intro to 40+ businesses, zero CAC" },
+      { "channel": "Agency partnerships", "effort": "medium", "fit": "Other digital marketing agencies as resellers" },
+      { "channel": "Google Business Profile communities", "effort": "low", "fit": "Reddit, Facebook groups for local business owners" }
+    ],
+    "moat_potential": {
+      "type": "switching_costs",
+      "explanation": "Once configured with business tone, response history, and integrated into agency workflows, switching cost is moderate. Stronger moat if bundled with BrandPulse.",
+      "time_to_moat": "3-6 months of usage data and workflow integration"
+    },
+    "top_competitor": "Resolva"
+  },
+  "feasibility": {
+    "tech_sketch": {
+      "summary": "Google Business Profile API for review monitoring, LLM for response generation, notification system (email/SMS/push), simple approve/edit/post UI. Standard web app architecture.",
+      "key_integrations": ["Google Business Profile API", "Anthropic/OpenAI API", "Twilio or email for notifications"],
+      "hard_technical_problems": "None. Straightforward API integration + LLM pipeline."
+    },
+    "complexity": { "level": "low", "reasoning": "Standard web app with API integrations. No complex architecture, no offline requirements, no real-time processing." },
+    "side_project_feasible": { "verdict": "yes", "explanation": "MVP can ship in 1-2 weekends. Monitoring + LLM + notification is a well-understood pattern. Ongoing maintenance is minimal." },
+    "real_blockers": [
+      { "blocker": "Yelp restricts automated replies via API — may be Google-only initially", "severity": "medium", "workaround": "Launch Google-only, add Yelp manually or via browser extension later" },
+      { "blocker": "SMB churn at low price points requires constant acquisition", "severity": "medium", "workaround": "Agency white-label model reduces churn by making the agency the customer" }
+    ],
+    "cost_to_operate": { "monthly_estimate": "$20-50/month at 100 locations", "breakdown": "LLM API calls (~$0.01-0.05 per review response), hosting ($10-20), Google API (free tier)" },
+    "key_risks": [
+      { "risk": "Google adds native AI review responses, eliminating the need for third-party tools", "mitigation": "Bundle with broader reputation suite (BrandPulse) so review responses are one feature, not the product", "severity": "high" },
+      { "risk": "Low price point means high volume needed for meaningful revenue", "mitigation": "Agency white-label model at $99-199/mo provides higher ARPU", "severity": "medium" }
+    ]
+  },
+  "monetization": {
+    "primary_model": {
+      "name": "SaaS Subscription",
+      "how_it_works": "Monthly subscription per business location. Free trial (10 responses), then $19-29/mo for unlimited AI responses with monitoring and notifications.",
+      "pricing": "$19/mo (basic — Google only), $29/mo (pro — multi-platform + analytics)",
+      "free_tier": "10 AI responses free, then paid"
+    },
+    "unit_economics": {
+      "at_100_users": { "monthly_revenue": "$2,400", "monthly_costs": "$70", "margin": "97%", "assumptions": "100 locations at avg $24/mo, hosting + API costs minimal" },
+      "at_500_users": { "monthly_revenue": "$12,000", "monthly_costs": "$250", "margin": "98%", "assumptions": "500 locations, API costs scale linearly but remain cheap" },
+      "at_1000_users": { "monthly_revenue": "$24,000", "monthly_costs": "$500", "margin": "98%", "assumptions": "1000 locations, may need part-time support help" }
+    },
+    "time_to_first_dollar": { "estimate": "2-4 weeks after launch", "how": "Andrew pitches to existing agency clients — 5+ should convert within first month" },
+    "alternative_models": [
+      { "model": "Agency White-Label", "pros": "Higher ARPU ($99-199/mo), lower churn, agencies handle end-client support", "cons": "Longer sales cycle, need multi-tenant dashboard" },
+      { "model": "Per-Response Pricing", "pros": "Pay-as-you-go lowers barrier to entry", "cons": "Unpredictable revenue, harder to forecast" }
+    ],
+    "pricing_psychology": "At $19-29/mo, this is less than the cost of one hour of an employee's time to write review responses manually. Frame as 'costs less than answering one review yourself.'",
+    "revenue_ceiling": { "realistic_monthly": "$15,000-25,000 at steady state with side-project effort", "reasoning": "500-1000 locations at $19-29/mo is achievable through agency channel without active sales. Ceiling rises significantly with agency white-label model." }
+  },
+  "summary": "ReviewReply scores 81/100 STRONG and represents a highly buildable, fast-to-market SMB tool with an exceptional distribution advantage through Andrew's agency client base. The team fit is the best possible configuration: Andrew owns the problem space, has 40+ warm leads, and can validate in days rather than weeks. The product is trivially cheap to build and operate, with 97%+ gross margins and a clear path to first dollar within a month.\n\nTop 3 Strengths: (1) Unmatched distribution — Andrew's 40+ agency clients create a zero-CAC launch pipeline. (2) Extreme buildability — MVP can ship in 1-2 weekends. (3) BrandPulse synergy — natural upsell/bundle that creates switching costs.\n\nTop 3 Concerns: (1) Crowded, commoditizing market — Resolva exists at exact same price point, Google may add native AI responses. (2) Low revenue ceiling standalone — $19-29/mo with SMB churn is a treadmill. (3) Yelp integration risk — API restrictions limit to Google-only initially.\n\nRecommended next steps: (1) Andrew pitches 5 agency clients this week to validate. (2) Ben builds Chrome extension MVP. (3) Position as BrandPulse add-on from day one. (4) If 5+ clients commit, build full automated pipeline.\n\nWho should lead: Andrew Herzog.",
+  "evaluation_history": [
+    { "date": "2026-02-18", "score": 81, "verdict": "STRONG", "trigger": "initial" }
+  ]
+}

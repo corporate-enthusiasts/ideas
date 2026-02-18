@@ -1,0 +1,121 @@
+{
+  "id": "slipstream",
+  "name": "SlipStream",
+  "one_liner": "Lightweight marina management for small harbors — slips, billing, maintenance, and guest communication",
+  "submitter": "ben",
+  "created": "2026-02-18",
+  "updated": "2026-02-18",
+  "status": "evaluated",
+  "type": "smb_saas",
+  "effort_level": "solo",
+  "tags": ["marina", "boating", "la-paz", "ben-lead", "boatstash-ecosystem"],
+  "brief": {
+    "problem": "Small marinas (under 200 slips) use whiteboards, spreadsheets, and phone calls to manage slip assignments, waitlists, billing, and maintenance. Legacy marina software is expensive ($250-500+/mo) and designed for large operations.",
+    "target_user": "Independent marina operators and harbormasters at small-to-medium harbors (20-200 slips), especially in cruising hubs like La Paz, BCS",
+    "proposed_solution": "AI-powered marina management tool: automated billing, slip assignment optimization, maintenance scheduling, weather alerts, and guest communication. Priced for small operators at $50-100/mo.",
+    "value_prop": "Professional marina management at 1/5th the cost of enterprise software — built for small harbors, not mega-marinas",
+    "initial_revenue_model": "SaaS subscription $50-100/mo per marina"
+  },
+  "scores": {
+    "competition": { "score": 3, "reasoning": "15+ established vendors (Dockwa with 2,000+ marinas, Molo, HarbaMaster with free tier, MarinaOffice). Small marina niche is underserved but not empty." },
+    "team_fit": { "score": 4, "reasoning": "Ben's La Paz move provides embedded, trust-based distribution that no remote competitor can replicate. Boating network provides warm intros. But Ben is not a marina operator; team lacks marina domain depth." },
+    "bootstrappability": { "score": 4, "reasoning": "Standard web app, commodity tech, under $100 infrastructure. Needs polished UX for non-technical marina operators." },
+    "passive_potential": { "score": 3, "reasoning": "SaaS billing is passive but marina operators need high-touch support and onboarding. Feature requests from a small customer base can be demanding." },
+    "side_project_viability": { "score": 3, "reasoning": "Building MVP fits constraints. Customer acquisition + support at 4-8 hrs/week is tight for B2B SaaS with high-touch onboarding." },
+    "ai_leverage": { "score": 3, "reasoning": "AI enhances (predictive maintenance, occupancy analytics, smart guest communication) but the core product is CRUD — slip database, billing, scheduling. Not AI-native." },
+    "revenue_clarity": { "score": 4, "reasoning": "Marinas already pay $250-500+/mo for software. $50-100/mo is compelling undercut. Question is whether the smallest marinas will pay at all vs. sticking with spreadsheets." },
+    "market_timing": { "score": 3, "reasoning": "Mature market with no technological inflection point. Timing advantage is personal (La Paz move), not market-driven." }
+  },
+  "composite_score": 62,
+  "verdict": "PROMISING",
+  "workshop": {
+    "sharpened_problem": "Marina operators at small harbors juggle slip assignments, transient bookings, maintenance schedules, billing, and guest communication with a patchwork of spreadsheets, paper logs, and phone calls. Enterprise marina software exists but costs $250-500+/mo and is designed for 500+ slip operations. Small marinas can't justify the cost and are stuck with manual processes that lead to double-bookings, missed maintenance, and lost revenue from transient boaters they can't efficiently accommodate.",
+    "key_assumptions": [
+      "Small marina operators will pay $50-100/mo for management software rather than continuing with spreadsheets",
+      "Ben's physical presence in La Paz provides enough distribution to reach critical mass in the cruising community",
+      "The BoatStash + SlipStream ecosystem creates enough synergy to justify building both products"
+    ],
+    "variations": [
+      { "name": "Transient Booking Widget", "description": "Focus narrowly on transient/visitor slip bookings — an online booking widget marinas embed on their website. Simpler than full management suite.", "tradeoff": "Much simpler to build and sell (one clear value prop), but lower ARPU and more direct competition from Dockwa's core feature." },
+      { "name": "BoatStash Marina Edition", "description": "Instead of separate products, add marina management features directly into BoatStash as a B2B tier.", "tradeoff": "Leverages existing BoatStash brand and user base, avoids building two separate products. But dilutes BoatStash's consumer focus." }
+    ],
+    "revenue_models": [
+      { "model": "SaaS Subscription", "how_it_works": "Monthly fee per marina for management suite", "price_range": "$50-100/mo based on slip count" },
+      { "model": "Transient Booking Commission", "how_it_works": "Free management tool + 5-10% commission on transient bookings processed through the platform", "price_range": "5-10% per booking" }
+    ],
+    "biggest_risk": "Established competitors (Dockwa, Molo) could easily move downmarket with free or cheap tiers if the small marina segment proves attractive. Dockwa already has 2,000+ marinas and strong brand recognition.",
+    "unfair_advantage_needed": "Ben's physical presence in the La Paz cruising community and the BoatStash user base as a referral channel. Without these, this is just another marina SaaS in a crowded market."
+  },
+  "market_research": {
+    "competitors": [
+      { "name": "Dockwa", "url": "https://marinas.dockwa.com", "model": "SaaS + booking commissions", "strengths": "2,000+ marinas, strong brand, modern UX, handles transient bookings well", "weaknesses": "Pricing may be high for small marinas, US-centric", "funding": "Acquired by Wanderlust Group" },
+      { "name": "Molo", "url": "https://getmolo.com", "model": "SaaS", "strengths": "Modern marina management platform", "weaknesses": "Focused on larger operations", "funding": "VC-backed" },
+      { "name": "HarbaMaster", "url": "https://www.globalnorthstar.com/marina-management-software", "model": "Free tier available", "strengths": "Free tier makes it accessible to small marinas", "weaknesses": "Less modern UX, limited AI features", "funding": "Unknown" },
+      { "name": "Spreadsheets / paper", "url": "n/a", "model": "Free", "strengths": "Zero cost, familiar, no learning curve", "weaknesses": "No automation, error-prone, can't handle growth or transient bookings efficiently", "funding": "n/a" }
+    ],
+    "market_size": {
+      "tam": "~12,000 marinas in the US + ~3,000 in Mexico/Caribbean",
+      "sam": "~5,000 small independent marinas (under 200 slips) not using modern software",
+      "target_niche": "Small marinas in cruising hubs (La Paz, Sea of Cortez, Caribbean) — estimated 500-1,000 facilities"
+    },
+    "trends": {
+      "direction": "stable",
+      "evidence": "Marina industry is mature with steady demand. No major growth catalyst, but not declining either. Boating participation stable.",
+      "tailwinds": ["Digital transformation of small businesses", "Growing transient/cruiser traffic in Mexico"],
+      "headwinds": ["Established competitors with large market share", "Small marina operators resistant to change"]
+    },
+    "distribution_channels": [
+      { "channel": "La Paz cruising community (in-person)", "effort": "low", "fit": "Ben physically present, can demo to marina operators face-to-face" },
+      { "channel": "BoatStash user base", "effort": "low", "fit": "Cross-referral from boaters to marinas they use" },
+      { "channel": "Cruising forums and Facebook groups", "effort": "medium", "fit": "Seven Seas Cruising Association, Cruisers Forum — active communities" }
+    ],
+    "moat_potential": {
+      "type": "switching_costs",
+      "explanation": "Once a marina migrates their slip data, billing history, and workflows into SlipStream, switching cost is high. Combined with BoatStash ecosystem, creates a two-sided network effect.",
+      "time_to_moat": "12+ months — need significant adoption on both sides"
+    },
+    "top_competitor": "Dockwa"
+  },
+  "feasibility": {
+    "tech_sketch": {
+      "summary": "Standard web application with database for slip management, billing integration (Stripe), scheduling system, and notification/communication layer. AI features are add-ons for maintenance prediction and guest communication.",
+      "key_integrations": ["Stripe (billing)", "Email/SMS (notifications)", "Weather APIs", "Anthropic/OpenAI (AI features)"],
+      "hard_technical_problems": "None. This is fundamentally a well-designed CRUD application with billing. The AI components are enhancement layers, not core architecture challenges."
+    },
+    "complexity": { "level": "medium", "reasoning": "More complex than a simple tool — needs proper billing, multi-tenant architecture, and enough features to replace spreadsheets. Not technically hard but requires polish and completeness to be useful." },
+    "side_project_feasible": { "verdict": "yes_but", "explanation": "Building the MVP is feasible at side-project pace. But B2B SaaS for non-technical marina operators requires high-touch onboarding and support that strains 4-8 hrs/week, especially when also building BoatStash." },
+    "real_blockers": [
+      { "blocker": "Marina operators are change-resistant and require relationship-based selling", "severity": "medium", "workaround": "Ben's physical presence in La Paz enables in-person demos and hand-holding that remote competitors can't offer" },
+      { "blocker": "Competing for Ben's bandwidth with BoatStash", "severity": "medium", "workaround": "Build BoatStash first, let marina relationships develop naturally, add SlipStream later as a natural extension" }
+    ],
+    "cost_to_operate": { "monthly_estimate": "$50-100/month at 20 marinas", "breakdown": "Hosting ($20-30), Stripe fees (2.9% of billing processed), email/SMS ($10-20), AI API ($10-20)" },
+    "key_risks": [
+      { "risk": "Dockwa or HarbaMaster moves downmarket with free/cheap tier for small marinas", "mitigation": "Focus on Mexico/Latin America cruising hubs where US competitors have weak presence", "severity": "high" },
+      { "risk": "Building two products (BoatStash + SlipStream) at side-project pace spreads Ben too thin", "mitigation": "Sequential approach: BoatStash first, SlipStream only if marina demand emerges organically", "severity": "medium" }
+    ]
+  },
+  "monetization": {
+    "primary_model": {
+      "name": "SaaS Subscription",
+      "how_it_works": "Monthly subscription based on marina size. Includes slip management, billing, maintenance scheduling, and basic communication features.",
+      "pricing": "$49/mo (up to 50 slips), $79/mo (up to 150 slips), $99/mo (unlimited)",
+      "free_tier": "30-day free trial with full features"
+    },
+    "unit_economics": {
+      "at_100_users": { "monthly_revenue": "$7,500", "monthly_costs": "$300", "margin": "96%", "assumptions": "100 marinas at avg $75/mo" },
+      "at_500_users": { "monthly_revenue": "$37,500", "monthly_costs": "$1,000", "margin": "97%", "assumptions": "500 marinas, need part-time support" },
+      "at_1000_users": { "monthly_revenue": "$75,000", "monthly_costs": "$3,000", "margin": "96%", "assumptions": "1000 marinas, need dedicated support team" }
+    },
+    "time_to_first_dollar": { "estimate": "3-6 months after Ben's La Paz move (Nov 2026-Feb 2027)", "how": "In-person demos to La Paz marina operators after establishing relationships through BoatStash community presence" },
+    "alternative_models": [
+      { "model": "Transient Booking Commission", "pros": "Free tool attracts adoption, revenue scales with booking volume", "cons": "Directly competes with Dockwa's model, requires booking volume to generate revenue" },
+      { "model": "BoatStash Bundle", "pros": "Single brand, cross-sell between boaters and marinas", "cons": "Dilutes BoatStash's consumer focus, complex pricing" }
+    ],
+    "pricing_psychology": "Marina operators compare against enterprise software at $250-500/mo. Position SlipStream as 'professional marina management at small-business prices' — the value anchor is what they'd pay for Dockwa or MarinaOffice, making $49-99/mo feel like a bargain.",
+    "revenue_ceiling": { "realistic_monthly": "$7,500-15,000 at steady state with side-project effort", "reasoning": "100-200 marinas at $49-99/mo is realistic over 18-24 months through community channels. Ceiling is modest because small marina market is limited and requires relationship-based sales." }
+  },
+  "summary": "SlipStream is a PROMISING idea with a clear niche, affordable price point, and a genuine unfair advantage in Ben's upcoming relocation to La Paz. The marina management software market is established with 15+ competitors, but most target medium-to-large operations at $250-500+/mo, leaving small marinas underserved. The product itself is technically straightforward and cheap to build and operate.\n\nTop 3 Strengths: (1) Ben physically moving to La Paz provides embedded, trust-based distribution that no remote competitor can replicate. (2) Natural ecosystem synergy with BoatStash — B2B SlipStream + B2C BoatStash creates a two-sided boating platform. (3) Extremely low cost to build and operate with proven B2B SaaS model at $50-100/mo, well below alternatives.\n\nTop 3 Concerns: (1) Established competition (Dockwa has 2,000+ marinas, HarbaMaster offers free tier) in a mature market with no technological inflection point. (2) High-touch, relationship-based sales required for change-resistant marina operators — difficult to scale at side-project pace beyond Ben's personal network. (3) Revenue ceiling is modest ($90K-180K ARR at realistic scale) — good side income but limited upside.\n\nRecommended next steps: (1) Build BoatStash first — it's higher scoring and validates the community. (2) Build bare-bones SlipStream MVP by July 2026 before the La Paz move. (3) Upon arrival in La Paz (Aug 2026), demo to 5 marina operators. (4) If 2+ marinas commit as paying beta users, pursue; if not, focus on BoatStash.\n\nWho should lead: Ben Battles.",
+  "evaluation_history": [
+    { "date": "2026-02-18", "score": 62, "verdict": "PROMISING", "trigger": "initial" }
+  ]
+}
