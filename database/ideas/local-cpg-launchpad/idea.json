@@ -1,0 +1,57 @@
+{
+  "id": "local-cpg-launchpad",
+  "name": "Local CPG Launchpad",
+  "one_liner": "An AI-agent platform that guides entrepreneurs from “idea → compliant product → local launch,” streamlining regulation, sourcing, branding, and go-to-market for small-batch CPG (starting with spirits).",
+  "submitter": "nick",
+  "created": "2026-02-18",
+  "updated": "2026-02-18",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "Launching a local CPG product is way harder than it looks—not because the product idea is complicated, but because the process is fragmented and high-friction: regulatory requirements, permits, compliant labeling, local sourcing, formulation, cost modeling, branding, packaging, distribution options, and launch planning. Most founders get stuck in research loops, vendor outreach, and paperwork before they ever ship a bottle.\n\nThis platform acts like a “co-founder in a box” powered by AI agents + workflows. It turns a user’s concept (e.g., a gin/vodka brand designed for weddings and private events, potentially served from a classic trailer) into a step-by-step execution plan, with documents, vendor lists, timelines, and decision support.\n\nKey workflows/agents:\n\t•\tRegulatory Navigator: generates a compliance checklist by location/category (permits, licensing, labeling constraints, recordkeeping), with a task plan and templates.\n\t•\tSourcing + Vendor Scout: finds and ranks local suppliers (ingredients, packaging, co-packers/distilleries), drafts outreach emails, and tracks responses.\n\t•\tUnit Economics Builder: builds a simple COGS + pricing model (batch sizes, packaging, taxes/fees, event-based pricing).\n\t•\tBrand + Packaging Studio: produces positioning, naming directions, label copy, and packaging requirements aligned to compliance.\n\t•\tLaunch Planner: creates a local GTM plan—events, partnerships, sampling strategy, distribution path, and a week-by-week checklist.\n\nBusiness model: subscription for the platform + optional paid add-ons (done-with-you setup, vendor introductions, label/brand packages, compliance review partners). Start with spirits as the wedge, then expand into other local CPG categories (coffee, sauces, wellness, etc.).",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
