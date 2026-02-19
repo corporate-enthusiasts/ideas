@@ -5,7 +5,7 @@
   "submitter": "troy",
   "created": "2026-02-19",
   "updated": "2026-02-19",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Crowded space with established players like Mercari, OfferUp, and Facebook Marketplace already offering simplified selling. Multiple startups have attempted automated listing services with limited success."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Team has automation and AI skills (Ben, Andrew) and SMB operations experience, but no unique edge in resale marketplace dynamics, logistics, or consumer behavior in secondhand goods."
+    },
+    "bootstrappability": {
+      "score": 3,
+      "reasoning": "MVP is technically feasible with AI image analysis and API integrations, but requires multiple marketplace API integrations, payment processing, and robust customer support infrastructure from day one to handle disputes."
+    },
+    "passive_potential": {
+      "score": 1,
+      "reasoning": "This is inherently high-touch: every customer interaction involves physical items, local pickup coordination, dispute resolution, and customer service. Cannot be set-and-forget."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Building the automation is feasible at 4-8 hours/week, but ongoing operations require rapid response times for buyer inquiries, pickup coordination, and problem resolution that doesn't fit side-project cadence."
+    },
+    "ai_leverage": {
+      "score": 4,
+      "reasoning": "AI is central to value prop: image recognition for item categorization, pricing analysis, listing optimization, and potentially chatbot responses to buyer inquiries. Provides clear 10x improvement over manual effort."
+    },
+    "revenue_clarity": {
+      "score": 3,
+      "reasoning": "Monetization path is clear (take rate on sales or subscription), but margins are challenging given low average item values in decluttering and high customer acquisition costs for one-time users."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Secondhand market is mature and stable. AI enablement is new but not creating urgency. No particular catalyst making now better than 2 years ago or 2 years from now."
     }
   },
-  "composite_score": 0,
+  "composite_score": 51,
   "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "summary": "This idea scores 49.74/100 (MEH) - it needs a significant pivot to be compelling for this team. The core problem is real and AI provides genuine leverage, but the business model fundamentally conflicts with the side-project constraint. Success requires being highly responsive to buyer inquiries within minutes/hours, managing pickup logistics, handling disputes over item condition, and providing white-glove customer service - none of which work at 4-8 hours per week with day jobs. The competition concern is also significant: marketplace giants have resources to build similar features in-house, and previous attempts at 'sell it for me' services have struggled with unit economics. The team has no unique advantages in the resale/marketplace space that would help them win against incumbents or justify why users would trust them with their belongings. The most viable pivot would be narrowing to a specific high-value vertical where the team has an edge (marine equipment in La Paz for Ben? corporate office furniture for Troy's network?) or shifting to a pure software play that helps people list items themselves faster, rather than doing it for them. As currently scoped, this requires either full-time commitment or a fundamentally different operational model.",
+  "evaluation_history": [
+    {
+      "date": "2026-02-19",
+      "score": 51,
+      "verdict": "MEH",
+      "trigger": "web-eval"
+    }
+  ]
 }
