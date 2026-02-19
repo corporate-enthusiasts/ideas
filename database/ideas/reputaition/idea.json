@@ -6,8 +6,8 @@
   "created": "2026-02-19",
   "updated": "2026-02-19",
   "status": "evaluated",
-  "type": "other",
-  "effort_level": "solo",
+  "type": "smb_saas",
+  "effort_level": "team",
   "tags": [],
   "brief": {
     "problem": "AI is bringing massive changes to how people search and find businesses. Business owners are aware that managing their online presence is important but don't know where to start. We build a sophisticated tool that not only monitors classic SEO performance and LLM mentions but also actively monitors changes in the digital landscape that are localized and indutry specific (like which 3rd party platforms are weighed favroably). It also monitors reviews. Basically a modern version of Birdeye but AI first. Combine Andrew's digital marketing chops, with Nick's network, Ben's coding abilities. This goes beyond the existing digital visibility tool Andrew and Nick have running to provide the heartbeat report and action item list -- maybe complete with automated notifications - to keep an owner or marketing director aware and in control of online presence",
