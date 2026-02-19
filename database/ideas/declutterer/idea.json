@@ -1,0 +1,57 @@
+{
+  "id": "declutterer",
+  "name": "Declutterer",
+  "one_liner": "Handles selling and posting things you’ve wanted to get rid of but are too lazy to sell yourself.",
+  "submitter": "troy",
+  "created": "2026-02-19",
+  "updated": "2026-02-19",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "For someone who has things around the house they want to get rid of but doesn’t have the bandwidth to research the price, demand, and manage how it’s sold. The bot would take a photo and description from the user, then confirm how much they are selling for locally, confirm with the user how aggressively they’re trying to move the item, then posts it to their site of choice (fb marketplace, eBay, Poshmark, OfferUp, etc). Ideally it also handles back and forth with interested parties.",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
