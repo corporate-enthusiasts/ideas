@@ -5,7 +5,7 @@
   "submitter": "andrew",
   "created": "2026-02-19",
   "updated": "2026-02-19",
-  "status": "evaluated",
+  "status": "re-evaluated",
   "type": "smb_saas",
   "effort_level": "team",
   "tags": [],
@@ -19,46 +19,52 @@
   "scores": {
     "competition": {
       "score": 2,
-      "reasoning": "Crowded market with established players like Birdeye, BrightLocal, Yext, and emerging AI-first reputation tools. Plus every SEO tool is adding LLM monitoring features now."
+      "reasoning": "Market is extremely crowded with well-funded incumbents (Birdeye, BrightLocal, Yext) plus every major SEO tool adding LLM monitoring. Late entrants face significant brand recognition and distribution challenges against players with established SMB sales channels."
     },
     "team_fit": {
       "score": 4,
-      "reasoning": "Strong fit with Andrew's 9 years managing SMB digital marketing clients, Nick's GTM/fundraising experience, and Ben's AI automation abilities. Andrew already has a paying LLM monitoring product proving concept validation."
+      "reasoning": "Andrew's 9 years managing 40+ SMB clients gives deep customer insight, and he already has a paying customer for LLM monitoring proving product-market fit. Ben's AI automation skills and Nick's GTM experience create a strong execution trio for this exact use case."
     },
     "bootstrappability": {
       "score": 3,
-      "reasoning": "Initial MVP is buildable with API costs for monitoring (OpenAI, Perplexity, review APIs) but ongoing scraping/monitoring infrastructure could get expensive at scale. Likely $500-2K to launch properly with reliable monitoring."
+      "reasoning": "API costs for continuous monitoring (LLM queries, review scraping, search tracking) will add up quickly across multiple customers. Infrastructure for reliable 24/7 monitoring and alert systems requires more than weekend MVP—likely $1-2K+ and several weeks to launch properly."
     },
     "passive_potential": {
-      "score": 3,
-      "reasoning": "Automated monitoring and alerts can run passively, but SMB customers will need support, onboarding help, and custom recommendations. Customer success requirements prevent true set-and-forget operation."
+      "score": 2,
+      "reasoning": "SMBs buying this product expect hand-holding, custom recommendations, and reactive support when their reputation issues arise. The monitoring can run automatically, but customer success, onboarding, and explaining complex AI insights will require significant ongoing human involvement."
     },
     "side_project_viability": {
-      "score": 3,
-      "reasoning": "Core monitoring tech is buildable at side-project pace, but competing with well-funded players means constant feature iteration. Customer support and sales to SMBs will consume hours beyond initial build."
+      "score": 2,
+      "reasoning": "Competing against funded companies means constant feature development to keep pace, plus SMB sales cycles require persistent outreach and demos. Customer support requests and technical maintenance will quickly exceed 8 hrs/week once you have 10+ paying customers."
     },
     "ai_leverage": {
       "score": 4,
-      "reasoning": "AI is central to the differentiation - LLM monitoring, intelligent recommendations, and automated change detection are impossible without AI. Goes beyond bolt-on to being core product value."
+      "reasoning": "AI is core to the differentiation—LLM mention tracking, intelligent change detection, and automated recommendations are impossible without AI. This goes beyond bolt-on features to being the primary value proposition that distinguishes from legacy SEO tools."
     },
     "revenue_clarity": {
       "score": 4,
-      "reasoning": "SMBs already pay $100-500/month for reputation management tools like Birdeye. Andrew has a paying customer proving willingness to pay for LLM monitoring specifically."
+      "reasoning": "Andrew already has a paying customer proving willingness to pay, and the SMB reputation management market has established pricing ($100-500/month). Clear path from free trial to paid conversion with demonstrable ROI through visibility metrics."
     },
     "market_timing": {
       "score": 5,
-      "reasoning": "Perfect timing as AI search fundamentally disrupts SEO and businesses are panicking about LLM visibility. Technology just enabled this use case and demand is spiking as ChatGPT search and Perplexity gain adoption."
+      "reasoning": "Perfect timing as ChatGPT search, Perplexity, and AI overviews fundamentally disrupt traditional SEO, creating urgent demand for LLM visibility monitoring. Technology enabling this just became accessible and SMBs are actively seeking solutions to understand their AI search presence."
     }
   },
-  "composite_score": 72,
+  "composite_score": 67,
   "verdict": "PROMISING",
-  "summary": "ReputAItion targets a growing pain point at the perfect moment - businesses scrambling to understand AI search visibility - but faces significant competitive headwinds. The team fit is excellent with Andrew's proven SMB marketing expertise and existing paying product, Nick's GTM capabilities, and Ben's automation skills. The AI-first approach and timing are genuinely strong advantages. However, this space is rapidly commoditizing as every SEO and reputation tool adds LLM monitoring. The core concern is differentiation: what makes this defensible against Birdeye adding AI features or venture-backed startups outspending you on sales and marketing?\n\nThe idea scores 68/100 (PROMISING) with clear strengths in team fit, timing, and revenue clarity, but weakness in competition. The SMB customer segment requires meaningful hand-holding and sales effort that conflicts with passive income goals. Andrew's existing paying customer is valuable validation but not sufficient moat.\n\nRecommended next steps: (1) Interview Andrew's current customer and 10-15 SMB owners to validate if they'd pay premium over Birdeye for better AI monitoring, (2) Define the specific wedge - what's the one thing you'll do 10x better that incumbents can't easily copy? (local AI search? specific verticals? automated action-taking vs just monitoring?), (3) Build lightweight MVP expanding Andrew's tool with automated monitoring and test with 5 paying pilot customers before committing. Without a clear differentiation wedge beyond 'Birdeye but AI-first,' this becomes a sales execution game you'll lose to funded players.",
+  "summary": "ReputAItion targets a growing, urgent need but faces a fundamental strategic challenge: you're entering a crowded market where well-funded incumbents are rapidly adding the exact AI features you're building. While Andrew's existing paying customer and deep SMB expertise provide validation, the team's side-project constraints clash with the reality of competing against companies with dedicated sales teams, established brand trust, and 24/7 support infrastructure. SMBs are notoriously high-touch customers who expect hand-holding, making this difficult to run passively alongside day jobs.\n\nThe strongest argument for building this is market timing—the AI search disruption is real and urgent, and Andrew already has proof of concept with a paying customer. The team has genuine advantages: Andrew's 9-year track record managing SMB digital marketing gives authentic customer insight, Ben can build sophisticated monitoring infrastructure, and Nick can execute GTM. However, the path from side project to sustainable business requires either accepting limited growth (staying small and focused) or eventually needing full-time commitment to compete.\n\nRecommended next steps: Before building a full platform, validate whether you can win a specific niche that incumbents are ignoring. Interview Andrew's existing customer and 10 more SMBs to find a narrow vertical (e.g., multi-location healthcare, local legal firms) where you have unique insight or distribution advantage. If you can't identify a wedge market where you're 10x better for a specific persona, this becomes a features arms race you'll lose to funded competitors. Consider pivoting to white-label AI monitoring infrastructure for agencies rather than competing directly for SMB customers.",
   "evaluation_history": [
     {
       "date": "2026-02-19",
       "score": 72,
       "verdict": "PROMISING",
       "trigger": "web-eval"
+    },
+    {
+      "date": "2026-02-19",
+      "score": 67,
+      "verdict": "PROMISING",
+      "trigger": "web-re-eval"
     }
   ]
 }
