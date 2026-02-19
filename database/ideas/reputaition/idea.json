@@ -1,0 +1,57 @@
+{
+  "id": "reputaition",
+  "name": "ReputAItion",
+  "one_liner": "An AI powered tool for brand's to monitor their digital presence",
+  "submitter": "andrew",
+  "created": "2026-02-19",
+  "updated": "2026-02-19",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "AI is bringing massive changes to how people search and find businesses. Business owners are aware that managing their online presence is important but don't know where to start. We build a sophisticated tool that not only monitors classic SEO performance and LLM mentions but also actively monitors changes in the digital landscape that are localized and indutry specific (like which 3rd party platforms are weighed favroably). It also monitors reviews. Basically a modern version of Birdeye but AI first. Combine Andrew's digital marketing chops, with Nick's network, Ben's coding abilities. This goes beyond the existing digital visibility tool Andrew and Nick have running to provide the heartbeat report and action item list -- maybe complete with automated notifications - to keep an owner or marketing director aware and in control of online presence",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
