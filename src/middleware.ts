@@ -16,15 +16,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Allow all GET requests through (read-only guest access)
-  if (request.method === "GET") {
-    return NextResponse.next();
-  }
-
-  // Write operations (POST/PUT/DELETE) require auth
+  // Everything else requires auth
   const authCookie = request.cookies.get("auth");
   if (!authCookie?.value) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.redirect(new URL("/login", request.url));
   }
 
   return NextResponse.next();

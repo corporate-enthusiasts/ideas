@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import AuthFeedbackWidget from "@/components/AuthFeedbackWidget";
+import FeedbackWidget from "@/components/FeedbackWidget";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -24,7 +24,7 @@ export default function RootLayout({
         className={`${manrope.variable} min-h-screen bg-[var(--bg)] font-[family-name:var(--font-manrope)] text-[var(--text-primary)] antialiased`}
       >
         {children}
-        <AuthFeedbackWidget />
+        <FeedbackWidget />
       </body>
     </html>
   );

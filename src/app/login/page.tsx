@@ -72,20 +72,6 @@ export default function LoginPage() {
             {loading ? "Checking..." : "Enter"}
           </button>
 
-          {/* Divider */}
-          <div className="mt-5 flex items-center gap-3">
-            <div className="h-px flex-1 bg-[var(--border)]" />
-            <span className="text-[11px] text-[var(--text-tertiary)]">or</span>
-            <div className="h-px flex-1 bg-[var(--border)]" />
-          </div>
-
-          {/* Guest access */}
-          <a
-            href="/"
-            className="mt-4 block w-full rounded-lg border border-[var(--border)] py-2.5 text-center text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--border-focus)] hover:text-[var(--text-primary)]"
-          >
-            Browse as Guest
-          </a>
         </form>
       </div>
     </div>

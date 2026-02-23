@@ -12,7 +12,6 @@ import AddNoteForm from "@/components/AddNoteForm";
 import TagEditor from "@/components/TagEditor";
 import EvaluateButton from "@/components/EvaluateButton";
 import { SCORE_LABELS, VERDICT_CONFIG } from "@/lib/constants";
-import { useAuth } from "@/lib/useAuth";
 import type { Idea, Note } from "@/lib/types";
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
@@ -38,7 +37,6 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
   const { data, error, isLoading, mutate } = useSWR<DetailData>(`/api/ideas/${slug}`, fetcher);
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { isAuthenticated } = useAuth();
   const [summaryOpen, setSummaryOpen] = useState(false);
   const autoEvaluate = searchParams.get("autoEvaluate") === "true";
 
@@ -98,22 +96,20 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
                 <VerdictBadge verdict={idea.verdict} size="lg" />
               </>
             )}
-            {isAuthenticated && (
-              <EvaluateButton
-                slug={slug}
-                status={idea.status}
-                currentScore={idea.composite_score}
-                autoEvaluate={autoEvaluate}
-                onEvaluated={() => {
-                  if (autoEvaluate) {
-                    router.replace(`/ideas/${slug}`, { scroll: false });
-                  }
-                  // Poll every 5s for results until scores arrive (max 60s)
-                  const interval = setInterval(() => mutate(), 5000);
-                  setTimeout(() => clearInterval(interval), 60000);
-                }}
-              />
-            )}
+            <EvaluateButton
+              slug={slug}
+              status={idea.status}
+              currentScore={idea.composite_score}
+              autoEvaluate={autoEvaluate}
+              onEvaluated={() => {
+                if (autoEvaluate) {
+                  router.replace(`/ideas/${slug}`, { scroll: false });
+                }
+                // Poll every 5s for results until scores arrive (max 60s)
+                const interval = setInterval(() => mutate(), 5000);
+                setTimeout(() => clearInterval(interval), 60000);
+              }}
+            />
           </div>
         </div>
       </div>
@@ -121,7 +117,7 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
       <div className="space-y-5">
         {/* Tags */}
         <Section title="Details">
-          <TagEditor idea={idea} onUpdated={mutate} readOnly={!isAuthenticated} />
+          <TagEditor idea={idea} onUpdated={mutate} />
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-[var(--text-tertiary)]">
             <span>Submitter: <span className="text-[var(--text-primary)]">{idea.submitter}</span></span>
             <span>Created: <span className="text-[var(--text-primary)]">{idea.created}</span></span>
@@ -184,12 +180,10 @@ export default function IdeaDetailPage({ params }: { params: Promise<{ slug: str
         {/* Notes */}
         <Section title={`Notes (${notes.length})`}>
           <NotesList notes={notes} />
-          {isAuthenticated && (
-            <div className="mt-4 border-t border-[var(--border-subtle)] pt-4">
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Add Note</p>
-              <AddNoteForm slug={slug} onNoteAdded={mutate} />
-            </div>
-          )}
+          <div className="mt-4 border-t border-[var(--border-subtle)] pt-4">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-[var(--text-tertiary)]">Add Note</p>
+            <AddNoteForm slug={slug} onNoteAdded={mutate} />
+          </div>
         </Section>
 
         {/* Eval History */}
