@@ -6,6 +6,7 @@ import IdeaCard from "@/components/IdeaCard";
 import FilterBar from "@/components/FilterBar";
 import type { Idea, SortOption } from "@/lib/types";
 import Link from "next/link";
+import { useAuth } from "@/lib/useAuth";
 
 type IdeaWithNotes = Idea & { _noteCount: number };
 
@@ -39,6 +40,7 @@ function SkeletonCard({ index }: { index: number }) {
 }
 
 export default function BoardPage() {
+  const { isAuthenticated } = useAuth();
   const { data: ideas, error, isLoading } = useSWR<IdeaWithNotes[]>("/api/ideas", fetcher, {
     refreshInterval: 60000,
   });
@@ -86,20 +88,22 @@ export default function BoardPage() {
           </h1>
           <p className="mt-1 text-[15px] text-[var(--text-tertiary)]">Ideas to escape the corporate overlords</p>
         </div>
-        <div className="flex items-center gap-3">
-          <Link
-            href="/feedback"
-            className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--border-focus)] hover:text-[var(--text-primary)]"
-          >
-            Feedback
-          </Link>
-          <Link
-            href="/submit"
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)]"
-          >
-            + New Idea
-          </Link>
-        </div>
+        {isAuthenticated && (
+          <div className="flex items-center gap-3">
+            <Link
+              href="/feedback"
+              className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-secondary)] transition-colors hover:border-[var(--border-focus)] hover:text-[var(--text-primary)]"
+            >
+              Feedback
+            </Link>
+            <Link
+              href="/submit"
+              className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--text-inverse)] transition-colors hover:bg-[var(--accent-hover)]"
+            >
+              + New Idea
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Filters */}

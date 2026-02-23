@@ -2,19 +2,29 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Skip auth for login page and auth API
-  if (
-    request.nextUrl.pathname === "/login" ||
-    request.nextUrl.pathname.startsWith("/api/auth")
-  ) {
+  // If already authenticated and visiting login, redirect to home
+  if (request.nextUrl.pathname === "/login") {
+    const authCookie = request.cookies.get("auth");
+    if (authCookie?.value) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
     return NextResponse.next();
   }
 
-  // Skip auth if no APP_PASSWORD is set (dev mode convenience)
-  // In production, APP_PASSWORD should always be set
+  // Allow auth API without any auth
+  if (request.nextUrl.pathname.startsWith("/api/auth")) {
+    return NextResponse.next();
+  }
+
+  // Allow all GET requests through (read-only guest access)
+  if (request.method === "GET") {
+    return NextResponse.next();
+  }
+
+  // Write operations (POST/PUT/DELETE) require auth
   const authCookie = request.cookies.get("auth");
   if (!authCookie?.value) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   return NextResponse.next();

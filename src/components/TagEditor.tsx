@@ -7,11 +7,12 @@ import type { Idea, IdeaType, EffortLevel, IdeaStatus } from "@/lib/types";
 interface TagEditorProps {
   idea: Idea;
   onUpdated: () => void;
+  readOnly?: boolean;
 }
 
 const selectClass = "cursor-pointer appearance-none rounded-md border border-[var(--border)] bg-[var(--bg-input)] px-2 py-1 text-xs font-medium text-[var(--text-secondary)] focus:border-[var(--border-focus)] focus:outline-none";
 
-export default function TagEditor({ idea, onUpdated }: TagEditorProps) {
+export default function TagEditor({ idea, onUpdated, readOnly }: TagEditorProps) {
   const [editing, setEditing] = useState(false);
   const [type, setType] = useState(idea.type);
   const [effort, setEffort] = useState(idea.effort_level);
@@ -47,12 +48,14 @@ export default function TagEditor({ idea, onUpdated }: TagEditorProps) {
         <span className="rounded-md bg-[var(--bg-surface-raised)] px-2.5 py-1 text-xs font-medium text-[var(--text-secondary)]">
           {STATUS_LABELS[idea.status] ?? idea.status}
         </span>
-        <button
-          onClick={() => setEditing(true)}
-          className="ml-1 text-[11px] font-medium text-[var(--text-tertiary)] transition-colors hover:text-[var(--accent)]"
-        >
-          Edit
-        </button>
+        {!readOnly && (
+          <button
+            onClick={() => setEditing(true)}
+            className="ml-1 text-[11px] font-medium text-[var(--text-tertiary)] transition-colors hover:text-[var(--accent)]"
+          >
+            Edit
+          </button>
+        )}
       </div>
     );
   }

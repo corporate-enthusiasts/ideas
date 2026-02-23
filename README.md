@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Lab — AI-Powered Idea Evaluator
 
-## Getting Started
+A business idea evaluation tool that uses AI to score ideas across 8 criteria and provide actionable verdicts. Submit an idea, get it scored by Claude, and track your idea pipeline.
 
-First, run the development server:
+**Live app:** [idea-board-wheat.vercel.app](https://idea-board-wheat.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What It Does
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Submit ideas** with a name, one-liner, and description
+- **AI evaluation** scores each idea across 8 criteria (AI leverage, competition, bootstrappability, revenue clarity, passive potential, team fit, side project viability, market timing)
+- **Verdict system** — STRONG / PROMISING / MEH / PASS based on weighted composite score
+- **Re-evaluation** — add notes with new context, re-evaluate, and see score deltas
+- **Filter and sort** — by type, effort level, status, verdict, or score
+- **Notes system** — track validation signals, concerns, and pivot ideas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<!-- TODO: Add screenshots after deploying guest mode -->
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend:** Next.js 15 (App Router) + TypeScript + Tailwind CSS v4
+- **AI:** Anthropic Claude API (8-criteria scoring with structured output)
+- **Database:** GitHub Contents API (JSON files as data, every change is a git commit)
+- **Data fetching:** SWR with real-time revalidation
+- **Deployment:** Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built entirely with [Claude Code](https://claude.ai/code) — Anthropic's AI coding agent.
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app uses GitHub as its database via the Contents API. Each idea is stored as a JSON file at `database/ideas/<slug>/idea.json` with an accompanying `notes.json`. This gives a full git audit trail for every change.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The AI evaluation pipeline scores ideas in a single Anthropic API call across 8 weighted criteria, calculates a composite score, and assigns a verdict.
+
+### Guest Mode
+
+Visitors can browse all ideas, scores, and verdicts without logging in. Write operations (submitting ideas, adding notes, evaluating, editing tags) require team authentication. This is enforced at the middleware level — GET requests pass through freely, while POST/PUT/DELETE require an auth cookie.
