@@ -1,0 +1,57 @@
+{
+  "id": "ai-birthday-planner",
+  "name": "AI Birthday Planner",
+  "one_liner": "An AI birthday planner (for the overwhelmed, not the lazy)",
+  "submitter": "ben",
+  "created": "2026-03-26",
+  "updated": "2026-03-26",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "Idea of the Day\n\nParty planner for parents with 15 kids to entertain\n\nPlanning a kid's birthday party is a multi-week project disguised as a celebration. Pinterest boards pile up. Vendor calls eat lunch breaks. Shopping lists live across three notes apps. RSVPs arrive through text, email, and hallway conversations at school pickup. Something always gets forgotten. The fun part never feels fun.\n\nPartypop is an AI party planner built for parents who stopped enjoying the process three vendor calls ago. Drop in the theme, headcount, budget, and zip code. The platform generates a full plan: guest tracker, shopping list, day-of timeline, and...",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
