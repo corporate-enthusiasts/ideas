@@ -1,0 +1,57 @@
+{
+  "id": "ai-drawing-teacher",
+  "name": "AI Drawing Teacher",
+  "one_liner": "Learn-to-draw app with AI feedback on every sketch",
+  "submitter": "ben",
+  "created": "2026-03-26",
+  "updated": "2026-03-26",
+  "status": "draft",
+  "type": "other",
+  "effort_level": "solo",
+  "tags": [],
+  "brief": {
+    "problem": "Learn-to-draw app with AI feedback on every sketch\n⏰\nPerfect Timing\n🚀\n10x Better\n+17 More\nArt education is built for people who are already drawing. Long courses assume commitment. YouTube tutorials assume context. The hobbyist who wants to improve but has twenty minutes after the kids are in bed has never had a system built for them. That person is everywhere the system isn't.\n\nMarkday is a daily drawing trainer that builds skill through short, structured lessons. Each one takes under ten minutes and connects directly to the last. Gesture work builds into shading. Shading builds into form. AI feedback on uploaded sketches catches the specific mistakes a tutorial never pauses to address: a proportion issue in the left shoulder, a shading gradient that flattens instead of rounds. The habit is the product. Ten minutes, three sessions a week, and every uploaded sketch feeds a model that learns where beginners break down. The corrections get more specific the longer someone stays.\n\nStart with twenty core lessons covering the fundamentals: line control, gesture, basic shading, simple composition. Build a sketch upload tool that returns AI feedback on proportion and line confidence. Onboard thirty hobbyists from r/learntoart and watch where they stop coming back. Dropout points are the product roadmap. The metric is whether users complete a third lesson within their first week. That threshold separates habit-builders from one-time visitors and determines whether the retention loop is working. If it isn't, no amount of new content fixes it.\n\nCharge $5 a month or $50 a year. The annual plan is the real conversion target. Community colleges and continuing education departments are the institutional buyer. They run beginner drawing courses with instructors who can't give individual feedback at scale. License the AI feedback layer at per-student rates, turning sketch data into curriculum intelligence that tells administrators where their courses lose people. A YouTube tutorial teaches the concept. Markday tells the learner what they did wrong on their specific sketch.",
+    "target_user": "",
+    "proposed_solution": "",
+    "value_prop": "",
+    "initial_revenue_model": ""
+  },
+  "scores": {
+    "ai_leverage": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "competition": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "bootstrappability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "revenue_clarity": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "passive_potential": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "team_fit": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "side_project_viability": {
+      "score": 0,
+      "reasoning": ""
+    },
+    "market_timing": {
+      "score": 0,
+      "reasoning": ""
+    }
+  },
+  "composite_score": 0,
+  "verdict": "MEH",
+  "summary": "",
+  "evaluation_history": []
+}
