@@ -5,7 +5,7 @@
   "submitter": "ben",
   "created": "2026-03-26",
   "updated": "2026-03-26",
-  "status": "draft",
+  "status": "evaluated",
   "type": "other",
   "effort_level": "solo",
   "tags": [],
@@ -17,41 +17,48 @@
     "initial_revenue_model": ""
   },
   "scores": {
-    "ai_leverage": {
-      "score": 0,
-      "reasoning": ""
-    },
     "competition": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "bootstrappability": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "revenue_clarity": {
-      "score": 0,
-      "reasoning": ""
-    },
-    "passive_potential": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Moderate competition exists (Drawabox, Proko, SketchDaily apps, New Masters Academy) but none have nailed AI feedback at scale yet. Room for differentiation through personalized AI critique, but the learn-to-draw space is crowded."
     },
     "team_fit": {
-      "score": 0,
-      "reasoning": ""
+      "score": 2,
+      "reasoning": "Andrew brings design sensibility and AI dev experience, Ben can build the tech stack, but team lacks art education expertise, community building experience in creative spaces, or existing networks in the hobbyist art world. No clear unique edge here."
+    },
+    "bootstrappability": {
+      "score": 3,
+      "reasoning": "MVP is achievable—lesson content creation, image upload, basic AI feedback via GPT-4 Vision API—but requires significant content development (20 lessons with examples) and iterative AI prompt engineering. Likely $500-1K and 4-8 weeks to ship something testable."
+    },
+    "passive_potential": {
+      "score": 3,
+      "reasoning": "Content is create-once but community management, customer support for frustrated learners, and ongoing AI feedback refinement will require consistent attention. Not set-and-forget, but not entirely hands-on either once core content exists."
     },
     "side_project_viability": {
-      "score": 0,
-      "reasoning": ""
+      "score": 3,
+      "reasoning": "Building the MVP is feasible at side-project pace, but creating quality art education content and testing feedback loops requires artistic judgment and iteration that could easily exceed 8 hrs/week. Maintenance is moderate once launched."
+    },
+    "ai_leverage": {
+      "score": 5,
+      "reasoning": "AI IS the product—personalized sketch feedback is impossible to deliver at scale without it. Vision models analyzing proportion, shading, and form are the core differentiator from existing tutorial-based competitors."
+    },
+    "revenue_clarity": {
+      "score": 4,
+      "reasoning": "Clear consumer subscription model ($5/mo, $50/yr) and institutional B2B path (community colleges). Art hobbyists already pay for Skillshare, Domestika, and similar platforms. Pricing is validated by comparable services."
     },
     "market_timing": {
-      "score": 0,
-      "reasoning": ""
+      "score": 4,
+      "reasoning": "Vision AI models just reached quality threshold for meaningful art critique (GPT-4V, Claude 3.5 with vision). Adult hobby learning exploded post-pandemic and remains strong. Technology enablement timing is excellent."
     }
   },
-  "composite_score": 0,
-  "verdict": "MEH",
-  "summary": "",
-  "evaluation_history": []
+  "composite_score": 70,
+  "verdict": "PROMISING",
+  "summary": "Markday hits the AI leverage sweet spot—it's genuinely impossible without modern vision models and offers 10x better feedback than static tutorials. The market timing is strong as both the technology and demand for flexible adult learning have converged. Revenue clarity is solid with proven willingness-to-pay in adjacent markets and a clear institutional path. However, team fit is the critical weakness: no one has deep art education credentials, existing audience in the hobbyist art community, or demonstrated ability to create compelling art curriculum. Andrew's design sense helps but doesn't replace pedagogical expertise. The concept also requires more content creation and iterative refinement than ideal for a pure side project—building 20 quality lessons with examples while tuning AI feedback is a heavy lift at 4-8 hrs/week.\n\nThe data moat potential is real—every sketch submission improves the feedback model and reveals where beginners struggle—but only if you can retain users long enough to build that dataset. The institutional B2B angle (community colleges licensing the feedback layer) is clever and underexplored, potentially offering a faster path to revenue than consumer subscriptions. The biggest risk is that the team lacks the domain authority to create content that actually works pedagogically, turning this into a tech demo rather than an effective learning tool. If you can partner with or hire an experienced art instructor to own curriculum while you build the AI layer, this becomes much more compelling. Without that, you're guessing at what makes good art education while competing against people who've taught for decades.",
+  "evaluation_history": [
+    {
+      "date": "2026-03-26",
+      "score": 70,
+      "verdict": "PROMISING",
+      "trigger": "web-eval"
+    }
+  ]
 }
